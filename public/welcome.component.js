@@ -6,5 +6,10 @@ angular.module('thriftyApp')
         console.log(window.localStorage.email)
         console.log(window.localStorage.auth_token)
       }
+      $scope.logOut = function () {
+        console.log('Cleared!')
+        window.localStorage.email = undefined
+        window.localStorage.auth_token = undefined
+      }
     }
   })
