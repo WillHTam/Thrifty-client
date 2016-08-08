@@ -7,7 +7,6 @@ angular.module('thriftyApp')
           email: $scope.user.email,
           password: $scope.user.password
         }
-
         $http({
           method: 'POST',
           url: 'https://thrifty-app.herokuapp.com/register',
@@ -15,7 +14,9 @@ angular.module('thriftyApp')
         })
         .success(function (data) {
           console.log(data)
-          $location.path('/')
+          window.localStorage.email = data.email
+          window.localStorage.auth_token = data.auth_token
+          $location.path('/getstarted')
         })
       }
     }

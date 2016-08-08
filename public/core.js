@@ -9,7 +9,7 @@ app.config(function ($routeProvider) {
       template: '<register></register>'
     })
     .when('/getstarted', {
-      template: '<start></start>'
+      template: '<getstarted></getstarted>'
     })
     .when('/login', {
       template: '<login></login>'
