@@ -10,7 +10,7 @@ angular.module('thriftyApp')
 
         $http({
           method: 'POST',
-          url: 'https:thrifty-api.herokuapp.com/newgoal',
+          url: 'https:thrifty-app.herokuapp.com/newgoal',
           data: data
         })
         .success( function (data) {

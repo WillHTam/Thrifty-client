@@ -10,7 +10,7 @@ angular.module('thriftyApp')
 
         $http({
           method: 'POST',
-          url: 'https://thrifty-api.herokuapp.com/register',
+          url: 'https://thrifty-app.herokuapp.com/register',
           data: data
         })
         .success(function (data) {
