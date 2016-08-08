@@ -11,7 +11,12 @@ angular.module('thriftyApp')
         $http({
           method: 'POST',
           url: 'https:thrifty-app.herokuapp.com/newgoal',
-          data: data
+          data: data,
+          beforeSend: function (xhr) {
+            xhr.setRequestHeader('email', window.localStorage['email'])
+            xhr.setRequestHeader('auth_token', window.localStorage['auth_token'])
+            // ADD CUTE WAITING UI HERE
+          }
         })
         .success( function (data) {
           console.log(data)

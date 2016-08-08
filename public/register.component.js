@@ -17,10 +17,6 @@ angular.module('thriftyApp')
           console.log(data)
           $location.path('/')
         })
-        .error(function (data) {
-          console.log(data)
-          $scope.message = data.error
-        })
       }
     }
   })
