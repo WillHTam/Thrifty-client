@@ -1,7 +1,7 @@
 angular.module('thriftyApp')
   .component('register', {
     templateUrl: 'register.template.html',
-    controller: function ($http, $scope) {
+    controller: function ($http, $scope, $location) {
       $scope.sendData = function() {
         var data ={
           email: $scope.user.email,
@@ -15,7 +15,7 @@ angular.module('thriftyApp')
         })
         .success(function (data) {
           console.log(data)
-          $scope.message = data.message
+          $location.path('/')
         })
         .error(function (data) {
           console.log(data)

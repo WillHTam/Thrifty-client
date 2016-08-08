@@ -1,7 +1,7 @@
 angular.module('thriftyApp')
   .component('login', {
     templateUrl: 'login.template.html',
-    controller: function ($http, $scope) {
+    controller: function ($http, $scope, $location) {
       $scope.loggerIn = function() {
         var data = {
           email: $scope.loguser.email,
@@ -15,7 +15,6 @@ angular.module('thriftyApp')
         })
         .success( function (data) {
           console.log(data)
-          $location.path("/main")
         })
       }
     }
