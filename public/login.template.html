@@ -1,1 +1,14 @@
 <h1>Login</h1>
+<form novalidate name="loguser">
+  <div>
+    <label>Email</label>
+    <input type="text" ng-model="loguser.email" placeholder="you@email.com" required>
+  </div>
+  <div>
+    <label>Password (8 characters or more)</label>
+    <input type="password" ng-model="loguser" placeholder="password" required>
+  </div>
+  <div>
+    <input type="submit" ng-click="loggerin" value="Log In">
+  </div>
+</form>
