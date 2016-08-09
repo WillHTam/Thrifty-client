@@ -1,12 +1,13 @@
-<img ng-src="images/logo-wordmark.png" alt="" id="logo-wordmark" />
-<h3>Saving for something? Thrifty helps you plan and keep track of your goals.</h3>
-<h4>Start planning in seconds</h4>
-<md-button class="md-raised md-primary">Register Here</md-button>
-<a href="#/register">Register Here</a><br>
-<h4>Already got an account?</h4>
-<a href="#/login">Login Here</a><br><br><br>
-<h3>Easy-Access Routes for Testing</h3>
-<a href="#/newgoal">New Goal</a><br>
-<a href="#/account">Account Details</a><br>
-<button ng-click="display()">See the Window Local Storage</button>|
-<button ng-click="logOut()">Log Out and Clear the Local Storage</button>
+<md-content flex layout-padding>
+  <img ng-src="images/logo-wordmark.png" alt="" id="logo-wordmark" />
+  <h3>Saving for something? Thrifty helps you plan and keep track of your goals.</h3>
+  <h4>Start planning in seconds</h4>
+  <md-button class="md-raised md-primary" href="#/register">Register</md-button>
+  <h4>Already got an account?</h4>
+  <md-button class="md-raised md-primary" href="#/login">Login</md-button>
+  <h3>Easy-Access Routes for Testing</h3>
+  <a href="#/newgoal">New Goal</a><br>
+  <a href="#/account">Account Details</a><br>
+  <button ng-click="display()">See the Window Local Storage</button>|
+  <button ng-click="logOut()">Log Out and Clear the Local Storage</button>
+</md-content>
