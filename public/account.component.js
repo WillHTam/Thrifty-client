@@ -1,7 +1,7 @@
 angular.module('thriftyApp')
   .component('account', {
     templateUrl: 'account.template.html',
-    controller: function ($http, $scope, $location) {
+    controller: function ($http, $scope, $location, $window) {
       $scope.accountChange = function() {
         var data= {
           first_name: $scope.account.first_name,
@@ -38,7 +38,7 @@ angular.module('thriftyApp')
         })
         .success( function (data) {
           console.log('fuck you')
-          $location.path('https://app-stg.msf.gov.sg/Assistance')
+          window.location.href = 'https://app-stg.msf.gov.sg/Assistance'
         })
       }
     }
