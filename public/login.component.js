@@ -18,7 +18,7 @@ angular.module('thriftyApp')
           // TODO: next two lines may not work
           window.localStorage.email = data.email
           window.localStorage.auth_token = data.auth_token
-          $location.path('/')
+          $location.path('/dashboard')
         })
       }
     }
