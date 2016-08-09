@@ -19,8 +19,15 @@ angular.module('thriftyApp')
         })
         .success( function (data) {
           console.log(data)
+          window.localStorage.email = data.email
+          window.localStorage.auth_token = data.auth_token
           $location.path('/account')
         })
+      }
+
+      $scope.checkHeaders = function () {
+        console.log(window.localStorage.email)
+        console.log(window.localStorage.auth_token)
       }
 
       $scope.deleteUser = function () {
