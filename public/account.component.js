@@ -1,7 +1,7 @@
 angular.module('thriftyApp')
   .component('account', {
     templateUrl: 'account.template.html',
-    controller: function ($http, $scope, $location) {
+    controller: function ($http, $scope, $location, $window) {
       $scope.accountChange = function() {
         var data= {
           first_name: $scope.account.first_name,
@@ -32,13 +32,13 @@ angular.module('thriftyApp')
 
       $scope.deleteUser = function () {
         $http({
-          method:'POST',
-          url: 'https://thrifty-app.herokuapp.com/deleteUser',
+          method:'DELETE',
+          url: 'https://thrifty-app.herokuapp.com/deleteuser',
           headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
         })
         .success( function (data) {
           console.log('fuck you')
-          $location.path('https://app-stg.msf.gov.sg/Assistance')
+          window.location.href = 'https://app-stg.msf.gov.sg/Assistance'
         })
       }
     }
