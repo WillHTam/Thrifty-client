@@ -1,4 +1,4 @@
-var app = angular.module('thriftyApp', ['ngRoute'])
+var app = angular.module('thriftyApp', ['ngRoute', 'ngMaterial'])
 
 app.config(function ($routeProvider) {
   $routeProvider
