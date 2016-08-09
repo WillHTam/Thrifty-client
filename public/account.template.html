@@ -1,1 +1,33 @@
 <h1>Account</h1>
+<h3>Delete / Change your account details here</h3>
+<form novalidate name="account">
+  <div>
+    <label>First Name</label>
+    <input type="text" ng-model="account.first_name" required>
+  </div>
+  <div>
+    <label>Last Name</label>
+    <input type="text" ng-model="account.last_name" required>
+  </div>
+  <div>
+    <label>Email</label>
+    <input type="text" ng-model="account.email" required>
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="text" ng-model="account.password" required>
+  </div>
+  <div>
+    <label>Your Monthly Income</label>
+    <input type="text" ng-model="account.monthly_income" required>
+  </div>
+  <div>
+    <input type="submit" ng-click="accountChange()" value="Change Details">
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div>
+    <button ng-click="deleteUser()">Delete Your Account :(</button>
+  </div>
+</form>
