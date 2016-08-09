@@ -14,7 +14,7 @@ app.config(function ($routeProvider) {
     .when('/login', {
       template: '<login></login>'
     })
-    .when('/home', {
+    .when('/dashboard', {
       template: '<dashboard></dashboard>'
     })
     .when('/newgoal', {

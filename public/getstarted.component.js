@@ -15,7 +15,7 @@ angular.module('thriftyApp')
         })
         .success( function (data) {
           console.log(data)
-          $location.path("/main")
+          $location.path("/dashboard")
         })
       }
     }
