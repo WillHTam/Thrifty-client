@@ -33,7 +33,7 @@ angular.module('thriftyApp')
       $scope.deleteUser = function () {
         $http({
           method:'DELETE',
-          url: 'https://thrifty-app.herokuapp.com/deleteUser',
+          url: 'https://thrifty-app.herokuapp.com/deleteuser',
           headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
         })
         .success( function (data) {
