@@ -6,19 +6,19 @@
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
         <label>First name</label>
-        <input required ng-model="user.first_name">
+        <input required md-no-asterisk ng-model="user.first_name">
       </md-input-container>
     </div>
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
         <label>Last name</label>
-        <input required ng-model="user.last_name">
+        <input required md-no-asterisk ng-model="user.last_name">
       </md-input-container>
     </div>
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
         <label>Email</label>
-        <input required ng-model="user.email" name="userEmail" minlength="6" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+        <input required md-no-asterisk ng-model="user.email" name="userEmail" minlength="6" maxlength="100" ng-pattern="/^.+@.+\..+$/">
         <!-- email validation and error handling -->
         <div ng-messages="registrationForm.userEmail.$error" role="alert">
           <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
@@ -30,7 +30,7 @@
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
         <label>Password</label>
-        <input required ng-model="user.password" name="userPassword" type="password" minLength="8">
+        <input required md-no-asterisk ng-model="user.password" name="userPassword" type="password" minLength="8">
         <div ng-messages="registrationForm.userPassword.$error" multiple md-auto-hide="false">
           <div ng-message-exp="['required', 'minlength']">
           Use at least 8 characters.

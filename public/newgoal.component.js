@@ -4,8 +4,8 @@ angular.module('thriftyApp')
     controller: function ($http, $scope, $location) {
       $scope.sendData = function() {
         var data = {
-          name: $scope.newgoal.name,
-          cost: $scope.newgoal.cost
+          name: $scope.goal.name,
+          cost: $scope.goal.cost
         }
 
         $http({
@@ -20,7 +20,7 @@ angular.module('thriftyApp')
           }
         })
         .success( function (data) {
-          console.log(data)
+          console.log("Goal created! " + data)
           $location.path("/goalplan")
         })
       }
