@@ -2,7 +2,6 @@ angular.module('thriftyApp')
   .component('dashboard', {
     templateUrl: 'dashboard.template.html',
     controller: function ($http, $scope) {
-
       $http({
         method: 'GET',
         url: 'https://thrifty-app.herokuapp.com/user',
@@ -21,7 +20,11 @@ angular.module('thriftyApp')
       })
       .success( function(response) {
         console.log(response)
-        $scope.listx = response
+        $scope.goals = response
       })
+
+      $scope.addIdHeader = function () {
+        window.localStorage.id = gols._id
+      }
     }
   })

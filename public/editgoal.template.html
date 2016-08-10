@@ -1,1 +1,26 @@
 <h1>Edit Goal</h1>
+<form name = "editgo">
+  <div>
+    <label>Name</label>
+    <input type="text" placeholder="{{dname}}" ng-model="editgo.name" required>
+  </div>
+  <div>
+    <label>Cost</label>
+    <input type="text" placeholder="{{dcost}}" ng-model="editgo.cost" required>
+  </div>
+  <div>
+    <label>Time Left</label>
+    <input type="text" placeholder="{{dtime_left}}" ng-model="editgo.time_left" required>
+  </div>
+  <div>
+    <label>Amount Left</label>
+    <input type="text" placeholder="{{damount_left}}" ng-model="editgo.amount_left"  required>
+  </div>
+  <div>
+    <label>Monthly Budget</label>
+    <input type="text" placeholder="{{dmonthly_budget}}" ng-model="editgo.amount_left" required>
+  </div>
+  <div>
+    <input type="submit" ng-click="editGoal()" value="Submit Changes">
+  </div>
+</form>

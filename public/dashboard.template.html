@@ -2,8 +2,10 @@
 <p>Hello again, {{first_name}} {{last_name}}!</p>
 
 <ul>
-  <li ng-repeat="gols in listx">
+  <li ng-repeat="gols in goals">
     <p>{{gols.name}}</p>
-    <p>{{gols.cost}}</p>
+    <p>${{gols.amount_left}} / ${{gols.cost}}</p>
+    <p>Time Remaining: {{gols.time_left}} months</p>
+    <a href="#/editgoal/{{gols._id}}">Edit this Goal</a>
   </li>
 </ul>
