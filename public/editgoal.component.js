@@ -16,6 +16,17 @@ angular.module('thriftyApp')
         $scope.editgo.monthly_budget = response[0].monthly_budget
       })
 
+      $scope.deleteGoal = function () {
+        $http({
+          method: 'DELETE',
+          url: 'https://thrifty-app.herokuapp.com/goal/' + $routeParams.id
+        })
+        .success( function(response) {
+          console.log(response)
+          $location.path('/dashboard')
+        })
+      }
+
       $scope.editGoal = function () {
         var data = {
           name: $scope.editgo.name,
@@ -26,10 +37,9 @@ angular.module('thriftyApp')
         }
 
         $http({
-          method: 'POST',
+          method: 'PUT',
           url: 'https://thrifty-app.herokuapp.com/goal/' + $routeParams.id,
-          data: data,
-          headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
+          data: data
         })
         .success( function (data) {
            console.log('success')
