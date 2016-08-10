@@ -51,12 +51,15 @@ app.config(function ($routeProvider) {
       template: '<editplan></editplan>'
     })
     .when('/editgoal', {
-      template: '<editgoal></editgoalplan>'
+      template: '<editgoal></editgoal>'
     })
     .when('/deletegoal', {
       template: '<deletegoal></deletegoal>'
     })
     .when('/account', {
       template: '<account></account>'
+    })
+    .when('/editgoal/:id/', {
+      template: '<editgoal></editgoal>'
     })
 })
