@@ -4,6 +4,8 @@ angular.module('thriftyApp')
     controller: function ($http, $scope, $location) {
       $scope.sendData = function() {
         var data ={
+          first_name: $scope.user.first_name,
+          last_name: $scope.user.last_name,
           email: $scope.user.email,
           password: $scope.user.password
         }
