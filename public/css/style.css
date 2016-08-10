@@ -54,14 +54,23 @@ md-content.md-default-theme, md-content {
 }
 
 #icon-picker {
-  padding: 20px;
-  width: 100px;
+  min-width: 280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-i.fa-chevron-left {
-  float: left;
+#icon {
+  width: 200px;
+  text-align: center;
+  margin: 0;
 }
 
-i.fa-chevron-right {
-  float: right
+i.fa-chevron-left, i.fa-chevron-right {
+  outline: none;
+  transition: all .2s ease-in-out;
+}
+
+i.fa-chevron-left:hover, i.fa-chevron-right:hover {
+  transform: scale(1.3);
 }
