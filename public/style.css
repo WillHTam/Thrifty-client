@@ -49,13 +49,6 @@ md-content.md-default-theme, md-content {
   color: rgba(76,219,148,1);
   background-color: rgb(249,249,249);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#centered-page {
-  display: flex;
   flex-flow: column-wrap;
-  background-color: rgb(249,249,249);
   align-items: center;
 }
