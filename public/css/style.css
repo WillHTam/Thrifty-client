@@ -82,3 +82,7 @@ i.fa-chevron-left, i.fa-chevron-right {
 i.fa-chevron-left:hover, i.fa-chevron-right:hover {
   transform: scale(1.3);
 }
+
+.dashcards{
+  width: 20em !important;
+}
