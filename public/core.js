@@ -1,4 +1,4 @@
-var app = angular.module('thriftyApp', ['ngRoute', 'ngMaterial', 'ngMessages'])
+var app = angular.module('thriftyApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'angular-carousel'])
 
 app.config(function($mdThemingProvider) {
   // Extend the red theme with a different color and make the contrast color black instead of white.

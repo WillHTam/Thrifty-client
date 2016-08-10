@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/brandon_med.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/brandon_med.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/brandon_med.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../fonts/brandon_med.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/brandon_med.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brandon';
+  src: url('../fonts/brandon_bld.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/brandon_bld.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/brandon_bld.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../fonts/brandon_bld.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/brandon_bld.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: bold;
+  font-style: normal;
+}
+
+*{
+  font-family: "Brandon";
+  font-size: 20px;
+}
+
+#logo-wordmark {
+  height: 200px;
+}
+
+@media screen and (max-width: 480px) {
+  #logo-wordmark {
+    height: 100px;
+  }
+}
+
+#wordmark {
+  height: 30px;
+}
+
+@media screen and (max-width: 480px) {
+  #wordmark {
+    height: 30px;
+  }
+}
+
+md-content.md-default-theme, md-content {
+  color: rgba(76,219,148,1);
+  background-color: rgb(249,249,249);
+  display: flex;
+  flex-flow: column-wrap;
+  align-items: center;
+}
