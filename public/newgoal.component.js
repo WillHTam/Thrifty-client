@@ -3,6 +3,7 @@ angular.module('thriftyApp')
   templateUrl: 'newgoal.template.html',
   controller: function ($http, $scope, $location) {
 
+    // icons
     $scope.icons = ["graduation-cap", "home", "plane", "car", "bank", "gift", "shopping-bag"]
 
     $scope.index = 0
@@ -43,7 +44,6 @@ angular.module('thriftyApp')
       })
       .success( function (data) {
         console.log("Goal created! " + data)
-        window.localStorage.goal_id = data._id
         $location.path("/goalplan")
       })
     }

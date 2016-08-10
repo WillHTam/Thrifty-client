@@ -5,7 +5,7 @@
     <h4>Set aside ${{monthly_budget}}/month</h4>
     <md-slider-container>
      <span><i class="fa fa-money fa-lg" aria-hidden="true"></i></span>
-     <md-slider flex min="100" max="{{monthly_income}}" ng-model="monthly_budget" aria-label="red" id="red-slider">
+     <md-slider flex min="100" max="{{available_income}}" ng-model="monthly_budget" aria-label="red" id="red-slider">
      </md-slider>
      <md-input-container>
        <input flex type="number" ng-model="monthly_budget" aria-label="red" aria-controls="red-slider">
@@ -15,7 +15,7 @@
    <h4>{{time_left}} {{unit()}}</h4>
    <md-slider-container>
     <span><i class="fa fa-hourglass-half fa-lg" aria-hidden="true"></i></span>
-    <md-slider flex min="1" ng-model="time_left" aria-label="time_left" id="time-left-slider">
+    <md-slider flex min="1" max="{{max_time()}}" ng-model="time_left" aria-label="time_left" id="time-left-slider">
     </md-slider>
     <md-input-container>
       <input flex type="number" ng-model="time_left" aria-label="time_left" aria-controls="time-left-slider">
