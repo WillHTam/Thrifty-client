@@ -13,16 +13,19 @@ angular.module('thriftyApp')
       else {
         $scope.index -= 1;
       }
+      console.log($scope.icons[$scope.index])
     }
     $scope.next = function() {
       $scope.index += 1;
       if ($scope.index === $scope.icons.length) {
         $scope.index = 0;
       }
+      console.log($scope.icons[$scope.index])
     }
 
     $scope.sendData = function() {
       var data = {
+        icon: $scope.icons[$scope.index],
         name: $scope.goal.name,
         cost: $scope.goal.cost
       }
