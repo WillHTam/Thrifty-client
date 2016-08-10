@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "angular-carousel": "^1.0.1",
-    "angular-jk-carousel": "^0.1.6",
+    "angular-touch": "^1.5.8",
     "express": "^4.14.0"
   },
   "engines": {
