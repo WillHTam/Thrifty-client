@@ -2,17 +2,13 @@
   <md-content layout="column" flex layout-padding>
     <h1>What are you saving up for?</h1>
 
-    <div layout-gt-sm="row">
-      <i class="fa fa-chevron-left fa-3x" aria-hidden="true" ng-click="prev()"></i>
-      <i class="fa fa-{{icons[index]}} fa-5x" aria-hidden="true"></i>
-      <i class="fa fa-chevron-right fa-3x" aria-hidden="true" ng-click="next()"></i>
+    <div layout-gt-sm="row" id="icon-picker">
+      <i class="fa fa-chevron-left fa-2x" aria-hidden="true" ng-click="prev()"></i>
+      <div id="icon">
+        <i class="fa fa-{{icons[index]}} fa-5x" aria-hidden="true"></i>
+      </div>
+      <i class="fa fa-chevron-right fa-2x" aria-hidden="true" ng-click="next()"></i>
     </div>
-
-    <!-- <ul rn-carousel>
-      <li ng-repeat="icon in icons">
-        <i class="fa fa-{{icon}} fa-5x" aria-hidden="true"></i>
-      </li>
-    </ul> -->
 
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
