@@ -1,7 +1,7 @@
 angular.module('thriftyApp')
 .component('goalplan', {
   templateUrl: 'goalplan.template.html',
-  controller: function ($http, $scope) {
+  controller: function ($http, $scope, $location) {
 
     // get current goal's ID and cost
     $http({
@@ -32,12 +32,10 @@ angular.module('thriftyApp')
 
     $scope.monthly_budget_changed = function () {
       $scope.time_left = Math.ceil($scope.cost / $scope.monthly_budget)
-      console.log("monthly_budget_changed() ran")
     }
 
     $scope.time_left_changed = function () {
       $scope.monthly_budget = Math.ceil($scope.cost / $scope.time_left)
-      console.log("time_left_changed() ran")
     }
 
     $scope.unit =  function () {
@@ -66,8 +64,8 @@ angular.module('thriftyApp')
       }
 
       $http({
-        method: 'POST',
-        url: 'https://thrifty-app.herokuapp.com/newgoal',
+        method: 'PUT',
+        url: 'https://thrifty-app.herokuapp.com/goal/' + window.localStorage.goal_id,
         data: data,
         headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token},
         beforeSend: function (xhr) {

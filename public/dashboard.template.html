@@ -1,24 +1,25 @@
 
 <md-content layout="column" flex layout-padding>
   <p>Hello again, {{first_name}} {{last_name}}!</p>
-  <div ng-repeat="gols in goals">
+  <div ng-repeat="goal in goals">
     <md-card class="dashcards" md-theme="{{ 'default' }}" md-theme-watch="">
       <md-card-title>
         <md-card-title-media>
           <!-- Pictures go in here -->
           <div class="md-media-md card-media">
-            <i class="fa fa-{{gols.icon}} fa-4x" aria-hidden="true"></i>
+            <i class="fa fa-{{goal.icon}} fa-4x" aria-hidden="true"></i>
           </div>
         </md-card-title-media>
         <md-card-title-text>
-          <span class="md-headline">{{gols.name}}</span>
-          <span class="md-subhead">${{gols.amount_left}} / ${{gols.cost}}</span>
-          <span class="md-subhead">Time Remaining: {{gols.time_left}} months</span>
+          <span class="md-headline">{{goal.name}}</span>
+          <span class="md-subhead">${{goal.amount_left}} / ${{goal.cost}}</span>
+          <span class="md-subhead">Time Remaining: {{goal.time_left}} months</span>
         </md-card-title-text>
       </md-card-title>
       <md-card-actions layout="row" layout-align="end center">
         <!-- If you remove Action 1&2, cards with shorter text with have a shorter width too, which is super ugly -->
-        <a href="#/editgoal/{{gols._id}}">Edit this Goal</a>
+
+        <a href="#/editgoal/{{goal._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></span></a>
       </md-card-actions>
     </md-card>
   </div>
@@ -28,10 +29,10 @@
 <!--
 This is the basic text list version
 <ul>
-  <li ng-repeat="gols in goals">
-    <p>{{gols.name}}</p>
-    <p>${{gols.amount_left}} / ${{gols.cost}}</p>
-    <p>Time Remaining: {{gols.time_left}} months</p>
-    <a href="#/editgoal/{{gols._id}}">Edit this Goal</a>
+  <li ng-repeat="goal in goals">
+    <p>{{goal.name}}</p>
+    <p>${{goal.amount_left}} / ${{goal.cost}}</p>
+    <p>Time Remaining: {{goal.time_left}} months</p>
+    <a href="#/editgoal/{{goal._id}}">Edit this Goal</a>
   </li>
 </ul> -->
