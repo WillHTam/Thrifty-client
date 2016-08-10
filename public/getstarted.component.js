@@ -4,7 +4,7 @@ angular.module('thriftyApp')
     controller: function($http, $scope, $location) {
       $scope.sendData = function() {
         var data = {
-          monthly_income: $scope.monthlyIncome.number
+          monthly_income: $scope.user.monthly_income
         }
 
         $http({

@@ -1,4 +1,4 @@
-<h1>Yo Dawg How Much Money Ya Earn</h1>
+<!-- <h1>Yo Dawg How Much Money Ya Earn</h1>
 
 <form novalidate name="monthlyIncome">
   <div>
@@ -8,4 +8,25 @@
   <div>
     <input type="submit" ng-click="sendData()" value="Get Started!">
   </div>
+</form> -->
+
+<form name="getStartedForm">
+  <md-content layout="column" flex layout-padding>
+    <img ng-src="images/wordmark.png" alt="" id="wordmark" />
+    <h1>Enter your monthly income.</h1>
+
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>$</label>
+        <input required type="number" ng-model="user.monthly_income" name="userIncome" min="100">
+        <!-- income validation and error handling -->
+        <div ng-messages="getStartedForm.userIncome.$error" role="alert">
+          <div ng-message-exp="['required', 'min']">
+            Please enter at least $100.
+          </div>
+        </div>
+      </md-input-container>
+    </div>
+    <md-button class="md-raised md-primary" href="#/newgoal" ng-click="sendData()">Get Started</md-button>
+  </md-content>
 </form>
