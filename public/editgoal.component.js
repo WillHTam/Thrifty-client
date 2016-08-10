@@ -9,12 +9,11 @@ angular.module('thriftyApp')
       })
       .success( function(response) {
         console.log(response)
-        console.log(response.name)
-        $scope.dname = response[0].name
-        $scope.dcost = response[0].cost
-        $scope.dtime_left = response[0].time_left
-        $scope.damount_left = response[0].amount_left
-        $scope.dmonthly_budget = response[0].monthly_budget
+        $scope.editgo.name = response[0].name
+        $scope.editgo.cost = response[0].cost
+        $scope.editgo.time_left = response[0].time_left
+        $scope.editgo.amount_left = response[0].amount_left
+        $scope.editgo.monthly_budget = response[0].monthly_budget
       })
 
       $scope.editGoal = function () {
