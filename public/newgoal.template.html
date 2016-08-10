@@ -1,20 +1,13 @@
-<!-- <h1>What are you saving up for?</h1>
-<div>
-<label>What's it called?</label>
-<input type="text" ng-model="newgoal.name" placeholder="Your Goal" required>
-</div>
-<div>
-<label>How much does it cost?</label>
-<input type="text" ng-model="newgoal.cost" placeholder="Number" required>
-</div>
-<div>
-<input type="submit" ng-click="sendData()" value="Start Planning">
-</div>
-</form> -->
-
 <form name="newGoalForm">
   <md-content layout="column" flex layout-padding>
     <h1>What are you saving up for?</h1>
+
+    <div layout-gt-sm="row">
+      <div ng-value="icon" ng-repeat="icon in icons">
+        <i class="fa fa-{{icon}} fa-5x" aria-hidden="true"></i>
+      </div>
+    </div>
+
 
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
