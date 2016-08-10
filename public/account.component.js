@@ -11,7 +11,6 @@ angular.module('thriftyApp')
         $scope.account.first_name = response.first_name
         $scope.account.last_name = response.last_name
         $scope.account.email=response.email
-        $scope.account.password=response.password
         $scope.account.monthly_income=response.monthly_income
       })
 
