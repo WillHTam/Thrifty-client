@@ -1,14 +1,26 @@
 <form name="goalPlanForm">
   <md-content layout="column" flex layout-padding>
     <h1>How would you like to save for it?</h1>
+
+    <h4>Set aside ${{monthly_budget}}/month</h4>
     <md-slider-container>
-     <span>R</span>
-     <md-slider flex min="0" max="{{monthly_income}}" ng-model="color.red" aria-label="red" id="red-slider">
+     <span><i class="fa fa-money fa-lg" aria-hidden="true"></i></span>
+     <md-slider flex min="100" max="{{monthly_income}}" ng-model="monthly_budget" aria-label="red" id="red-slider">
      </md-slider>
      <md-input-container>
-       <input flex type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
+       <input flex type="number" ng-model="monthly_budget" aria-label="red" aria-controls="red-slider">
      </md-input-container>
    </md-slider-container>
+
+   <h4>{{time_left}} {{unit()}}</h4>
+   <md-slider-container>
+    <span><i class="fa fa-hourglass-half fa-lg" aria-hidden="true"></i></span>
+    <md-slider flex min="1" ng-model="time_left" aria-label="time_left" id="time-left-slider">
+    </md-slider>
+    <md-input-container>
+      <input flex type="number" ng-model="time_left" aria-label="time_left" aria-controls="time-left-slider">
+    </md-input-container>
+  </md-slider-container>
 
   </md-content>
 

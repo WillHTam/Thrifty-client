@@ -25,6 +25,14 @@
   font-size: 20px;
 }
 
+body {
+  background-color: rgb(249,249,249);
+}
+
+h1 {
+  font-size: 1.3em;
+}
+
 #logo-wordmark {
   height: 200px;
 }
