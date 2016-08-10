@@ -52,3 +52,16 @@ md-content.md-default-theme, md-content {
   flex-flow: column-wrap;
   align-items: center;
 }
+
+#icon-picker {
+  padding: 20px;
+  width: 100px;
+}
+
+i.fa-chevron-left {
+  float: left;
+}
+
+i.fa-chevron-right {
+  float: right
+}
