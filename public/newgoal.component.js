@@ -43,7 +43,6 @@ angular.module('thriftyApp')
       })
       .success( function (data) {
         console.log("Goal created! " + data)
-        window.localStorage.goal_id = data._id
         $location.path("/goalplan")
       })
     }
