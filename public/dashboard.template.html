@@ -4,6 +4,8 @@
 <ul>
   <li ng-repeat="gols in listx">
     <p>{{gols.name}}</p>
-    <p>{{gols.cost}}</p>
+    <p>${{gols.amount_left}} / ${{gols.cost}}</p>
+    <p>Time Remaining: {{gols.time_left}} months</p>
+    <a href="#/editgoal">Edit this Goal</a>
   </li>
 </ul>
