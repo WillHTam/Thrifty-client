@@ -1,6 +1,7 @@
 
 <md-content layout="column" flex layout-padding>
   <p>Hello again, {{first_name}} {{last_name}}!</p>
+  <md-button ng-click="goEdit()">Edit Account Details</md-button>
   <div ng-repeat="goal in goals">
     <md-card class="dashcards" md-theme="{{ 'default' }}" md-theme-watch="">
       <md-card-title>

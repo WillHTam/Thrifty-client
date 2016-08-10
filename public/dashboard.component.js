@@ -1,7 +1,7 @@
 angular.module('thriftyApp')
   .component('dashboard', {
     templateUrl: 'dashboard.template.html',
-    controller: function ($http, $scope) {
+    controller: function ($http, $scope, $location) {
       $http({
         method: 'GET',
         url: 'https://thrifty-app.herokuapp.com/user',
@@ -22,6 +22,11 @@ angular.module('thriftyApp')
         console.log(response)
         $scope.goals = response
       })
+
+      $scope.goEdit = function () {
+        console.log('button pressed')
+        $location.path('/account')
+      }
 
       $scope.logout = function () {
         console.log('Cleared!')
