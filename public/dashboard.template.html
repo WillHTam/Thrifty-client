@@ -2,12 +2,12 @@
 <md-content layout="column" flex layout-padding>
   <p>Hello again, {{first_name}} {{last_name}}!</p>
   <div ng-repeat="gols in goals">
-    <md-card md-theme="{{ 'default' }}" md-theme-watch="">
+    <md-card class="dashcards" md-theme="{{ 'default' }}" md-theme-watch="">
       <md-card-title>
         <md-card-title-media>
           <!-- Pictures go in here -->
           <div class="md-media-md card-media">
-            <img ng-src="images/wordmark.png" id="wordmark">
+            <i class="fa fa-{{gols.icon}} fa-4x" aria-hidden="true"></i>
           </div>
         </md-card-title-media>
         <md-card-title-text>
@@ -18,8 +18,6 @@
       </md-card-title>
       <md-card-actions layout="row" layout-align="end center">
         <!-- If you remove Action 1&2, cards with shorter text with have a shorter width too, which is super ugly -->
-        <md-button>Action 1</md-button>
-        <md-button>Action 2</md-button>
         <a href="#/editgoal/{{gols._id}}">Edit this Goal</a>
       </md-card-actions>
     </md-card>
