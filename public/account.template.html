@@ -1,3 +1,57 @@
+<form name="accountDetails">
+  <md-content layout="column" flex layout-padding>
+    <img ng-src="images/wordmarkpng" id="wordmark">
+    <h1>Edit/Delete Your Account Here</h1>
+
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>First Name</label>
+        <input type="text" ng-model="account.first_name" md-no-asterisk required>
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Last Name</label>
+        <input type="text" ng-model="account.last_name" md-no-asterisk required>
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Email</label>
+        <input name="userEmail" minLength="6" maxLength="100"  type="text" ng-model="account.email" md-no-asterisk required ng-pattern="/^.+@.+\..+$/">
+        <div ng-messages="registrationForm.userEmail.$error" role="alert">
+          <div ng-message-exp="['required', 'minLength', 'maxLength', 'pattern']">
+            Oops, invalid email.
+          </div>
+        </div>
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Password</label>
+        <input type="password" name="userPassword" minLength="8" ng-model="account.password" md-no-asterisk required>
+        <div ng-messages="registrationForm.userPassword.$error" multiple md-auto-hide="false">
+          <div ng-message-exp="['required', 'minLength']">
+          Use at least 8 characters.
+          </div>
+        </div>
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Your Monthly Income</label>
+        <input type="text" ng-model="account.monthly_income" md-no-asterisk required>
+      </md-input-container>
+    </div>
+    <md-button class="md-raised md-primary" href="#/dashboard" ng-click="accountChange()">Submit Changes</md-button>
+    <hr>
+    <div>
+      <md-button ng-click="checkHeaders()">Check Headers</md-button>
+    </div>
+  </md-content>
+</form>
+
+
 <h1>Account</h1>
 <h3>Delete / Change your account details here</h3>
 <form novalidate name="account">
