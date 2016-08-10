@@ -1,14 +1,20 @@
-<h1>Login</h1>
-<form novalidate name="loguser">
-  <div>
-    <label>Email</label>
-    <input type="text" ng-model="loguser.email" placeholder="you@email.com" required>
-  </div>
-  <div>
-    <label>Password (8 characters or more)</label>
-    <input type="text" ng-model="loguser.password" placeholder="password" required>
-  </div>
-  <div>
-    <input type="submit" ng-click="loggerIn()" value="Log In">
-  </div>
+<form name="loguser">
+  <md-content layout="column" flex layout-padding>
+    <img ng-src="images/wordmark.png" id="wordmark">
+
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Email</label>
+        <input type="text" ng-model="loguser.email" md-no-asterisk required>
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Password</label>
+        <input type="password" ng-model="loguser.password" md-no-asterisk required>
+      </md-input-container>
+    </div>
+    <div>
+      <md-button class="md-raised md-primary" ng-click="loggerIn()">Login</md-button>
+    </div>
 </form>
