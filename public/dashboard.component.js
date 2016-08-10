@@ -23,6 +23,11 @@ angular.module('thriftyApp')
         $scope.goals = response
       })
 
+      $scope.goEdit = function () {
+        console.log('button pressed')
+        $location.path('/account')
+      }
+
       $scope.logout = function () {
         console.log('Cleared!')
         window.localStorage.email = undefined
