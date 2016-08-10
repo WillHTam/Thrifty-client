@@ -2,23 +2,23 @@
   <md-content layout="column" flex layout-padding>
     <h1>How would you like to save for it?</h1>
 
-    <h4>Set aside ${{monthly_budget}}/month</h4>
+    <h4>set aside ${{monthly_budget}}/month</h4>
     <md-slider-container>
      <span><i class="fa fa-money fa-lg" aria-hidden="true"></i></span>
-     <md-slider flex min="100" max="{{available_income}}" ng-model="monthly_budget" ng-change="monthly_budget_changed()" aria-label="red" id="red-slider">
+     <md-slider flex min="100" max="{{available_income}}" ng-model="monthly_budget" ng-change="monthly_budget_changed()" aria-label="monthly_budget">
      </md-slider>
      <md-input-container>
-       <input flex type="number" ng-model="monthly_budget" ng-change="monthly_budget_changed()" aria-label="red" aria-controls="red-slider" value="50">
+       <input id="monthly-budget-input" flex type="number" ng-model="monthly_budget" ng-change="monthly_budget_changed()" aria-label="monthly_budget" aria-controls="red-slider" value="50">
      </md-input-container>
    </md-slider-container>
 
-   <h4>{{time_left}} {{unit()}}</h4>
+   <h4>for {{time_left}} {{unit()}}</h4>
    <md-slider-container>
     <span><i class="fa fa-hourglass-half fa-lg" aria-hidden="true"></i></span>
-    <md-slider flex min="{{min_time()}}" max="{{max_time()}}" ng-model="time_left" ng-change="time_left_changed()" aria-label="time_left" id="time-left-slider">
+    <md-slider flex min="{{min_time()}}" max="{{max_time()}}" ng-model="time_left" ng-change="time_left_changed()" aria-label="time_left">
     </md-slider>
     <md-input-container>
-      <input flex type="number" ng-model="time_left" ng-change="time_left_changed()" aria-label="time_left" aria-controls="time-left-slider">
+      <input id="time-left-input" flex type="number" ng-model="time_left" ng-change="time_left_changed()" aria-label="time_left" aria-controls="time-left-slider">
     </md-input-container>
   </md-slider-container>
 
