@@ -1,6 +1,33 @@
-<h1>Dashboard</h1>
-<p>Hello again, {{first_name}} {{last_name}}!</p>
 
+<md-content layout="column" flex layout-padding>
+  <p>Hello again, {{first_name}} {{last_name}}!</p>
+  <div ng-repeat="gols in goals">
+    <md-card md-theme="{{ 'default' }}" md-theme-watch="">
+      <md-card-title>
+        <md-card-title-media>
+          <!-- Pictures go in here -->
+          <div class="md-media-md card-media">
+            <img ng-src="images/wordmark.png" id="wordmark">
+          </div>
+        </md-card-title-media>
+        <md-card-title-text>
+          <span class="md-headline">{{gols.name}}</span>
+          <span class="md-subhead">${{gols.amount_left}} / ${{gols.cost}}</span>
+          <span class="md-subhead">Time Remaining: {{gols.time_left}} months</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="end center">
+        <!-- If you remove Action 1&2, cards with shorter text with have a shorter width too, which is super ugly -->
+        <md-button>Action 1</md-button>
+        <md-button>Action 2</md-button>
+        <a href="#/editgoal/{{gols._id}}">Edit this Goal</a>
+      </md-card-actions>
+    </md-card>
+  </div>
+</md-content>
+
+<!--
+This is the basic text list version 
 <ul>
   <li ng-repeat="gols in goals">
     <p>{{gols.name}}</p>
@@ -8,4 +35,4 @@
     <p>Time Remaining: {{gols.time_left}} months</p>
     <a href="#/editgoal/{{gols._id}}">Edit this Goal</a>
   </li>
-</ul>
+</ul> -->
