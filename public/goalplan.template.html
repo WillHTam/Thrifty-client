@@ -1,7 +1,14 @@
 <form name="goalPlanForm">
   <md-content layout="column" flex layout-padding>
     <h1>How would you like to save for it?</h1>
-
+    <md-slider-container>
+     <span>R</span>
+     <md-slider flex min="0" max="{{monthly_income}}" ng-model="color.red" aria-label="red" id="red-slider">
+     </md-slider>
+     <md-input-container>
+       <input flex type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
+     </md-input-container>
+   </md-slider-container>
 
   </md-content>
 
