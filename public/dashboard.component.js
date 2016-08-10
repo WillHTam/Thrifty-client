@@ -23,8 +23,11 @@ angular.module('thriftyApp')
         $scope.goals = response
       })
 
-      $scope.addIdHeader = function () {
-        window.localStorage.id = gols._id
+      $scope.logout = function () {
+        console.log('Cleared!')
+        window.localStorage.email = undefined
+        window.localStorage.auth_token = undefined
+        $location.path('/')
       }
     }
   })
