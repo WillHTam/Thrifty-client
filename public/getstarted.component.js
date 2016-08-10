@@ -6,6 +6,7 @@ angular.module('thriftyApp')
 
         var data = {
           monthly_income: $scope.user.monthly_income
+          available_income: $scope.user.monthly_income
         }
 
         $scope.input = $scope.user.monthly_income;

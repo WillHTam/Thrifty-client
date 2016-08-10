@@ -3,6 +3,7 @@ angular.module('thriftyApp')
   templateUrl: 'newgoal.template.html',
   controller: function ($http, $scope, $location) {
 
+    // icons
     $scope.icons = ["graduation-cap", "home", "plane", "car", "bank", "gift", "shopping-bag"]
 
     $scope.index = 0
