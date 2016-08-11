@@ -1,22 +1,36 @@
-<md-content layout="column" flex>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <md-button aria-label="Log out" ng-click="logOut()">
-        Log out
-      </md-button>
-      <h2>
-        <span>Welcome back, {{first_name}} {{last_name}}. You have $ {{available_income}} available.</span>
-      </h2>
-      <span flex></span>
-      <md-button ng-click="goEdit()" class="md-raised" aria-label="My Account">
-        My Account
-      </md-button>
-      <md-button ng-click="newGoal()" class="md-fab md-mini" aria-label="New Goal">
-        <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
-      </md-button>
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout="row">
+      <div class="toolbar-logo" ng-href="/#/">
+        <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+      </div>
+      <div class="wordmark">THRIFTY</div>
     </div>
-  </md-toolbar>
+    <span flex></span>
+    <div class="title-spaced">
+      <h1>{{first_name}} {{last_name}}
+          <i class="fa fa-user" aria-hidden="true"></i>
+          ${{monthly_income | number:0}}
+      </h1>
+    </div>
+    <span flex></span>
+    <md-button ng-click="goEdit()" aria-label="My Account">
+      My Account
+    </md-button>
+    <md-button aria-label="Log out" ng-click="logOut()">
+      Log out
+    </md-button>
+  </div>
+</md-toolbar>
 
+<md-content layout="column" flex>
+  <h1>$ {{available_income | number:0}}</h1>
+  <p class="title-spaced">available</p><br>
+  <md-button ng-click="newGoal()" class="md-fab md-mini" aria-label="New Goal">
+    <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+  </md-button>
+
+  <!-- GOAL CARDS -->
   <div ng-repeat="goal in goals" class="dashboard">
     <md-card class="dashcards" md-theme="{{ 'default' }}" md-theme-watch="">
       <md-card-title style="padding-right: 30px;">
@@ -29,7 +43,7 @@
           <!-- edit icon -->
           <div layout="row" class="title">
             <div>
-              <span class="md-headline">{{goal.name}}</span>
+              <span class="md-headline">{{goal.name}}</span> <h2>${{goal.monthly_budget | number:0}}/month</h2>
             </div>
             <div>
               <a href="#/editgoal/{{goal._id}}"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></span></a>
@@ -39,14 +53,14 @@
             <md-progress-linear md-mode="determinate" value="{{( (goal.amount_saved / goal.cost) * 100)}}"></md-progress-linear>
           </div>
           <div layout="column">
-            <span class="md-subhead">Saved ${{goal.amount_saved}} / ${{goal.cost}}</span>
+            <span class="md-subhead">Saved ${{goal.amount_saved | number:0}} / ${{goal.cost | number:0}}</span>
             <span class="md-subhead" style="color:#FB8C00">{{goal.time_left}} months to go</span>
           </div>
         </md-card-title-text>
       </md-card-title>
       <md-card-actions layout="row" class="card-actions">
-        <md-button ng-click="subtractSavings($index)">- ${{goal.monthly_budget}}</md-button>
-        <md-button ng-click="addSavings($index)">+ ${{goal.monthly_budget}}</md-button>
+        <md-button ng-click="subtractSavings($index)">- Withdraw</md-button>
+        <md-button ng-click="addSavings($index)">+ Deposit</md-button>
       </md-card-actions>
     </md-card>
   </div>

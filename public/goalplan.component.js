@@ -34,7 +34,15 @@ angular.module('thriftyApp')
     $scope.monthly_budget = 100
 
     // default minimum 1 month
-    $scope.min_time = 1
+    $scope.min_time = function() {
+      var min_time = $scope.cost / $scope.available_income
+      if (min_time > 1) {
+        return min_time
+      }
+      else {
+        return 1
+      }
+    }
 
     $scope.monthly_budget_changed = function () {
       $scope.time_left = Math.ceil($scope.cost / $scope.monthly_budget)

@@ -54,6 +54,19 @@ h1 {
   height: 150px;
 }
 
+.toolbar-logo {
+  /*display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;*/
+  background-image: url(../images/logo-white.png);
+  background-size: cover;
+  background-position: center;
+  height: 25px;
+  width: 25px;
+  margin-top: 3px;
+}
+
 #toolbar-logo {
   height: 25px;
 }
@@ -75,6 +88,10 @@ h1 {
   }
 }
 
+.title-spaced {
+  letter-spacing: 0.3em;
+}
+
 md-content.md-default-theme, md-content {
   color: rgba(76,219,148,1);
   background-color: rgb(249,249,249);
@@ -82,6 +99,7 @@ md-content.md-default-theme, md-content {
   flex-flow: column-wrap;
   align-items: center;
   justify-content: center;
+  padding: 5vh 0;
 }
 
 #icon-picker {
@@ -148,7 +166,7 @@ button {
 
 .card-actions {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /*progress bar*/

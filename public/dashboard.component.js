@@ -17,6 +17,7 @@ angular.module('thriftyApp')
       $scope.first_name = response.first_name
       $scope.last_name = response.last_name
       $scope.available_income = response.available_income
+      $scope.monthly_income = response.monthly_income
     })
 
     // GET all of user's goals
@@ -61,26 +62,26 @@ angular.module('thriftyApp')
     $scope.addSavings = function (index) {
 
       // UPDATE user
-      var latest_available_income = ($scope.available_income - $scope.goals[index].monthly_budget)
-
-      var userData = {
-        available_income: latest_available_income
-      }
-
-      console.log("Available income will be updated to $" + latest_available_income)
-      console.log(userData)
-
-      $http({
-        method: 'PUT',
-        url: 'https://thrifty-app.herokuapp.com/account',
-        data: userData,
-        headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
-      })
-      .success( function (data) {
-        console.log("User updated. " + data)
-        window.localStorage.email = data.email
-        window.localStorage.auth_token = data.auth_token
-      })
+      // var latest_available_income = ($scope.available_income - $scope.goals[index].monthly_budget)
+      //
+      // var userData = {
+      //   available_income: 7900
+      // }
+      //
+      // console.log("Available income will be updated to $" + latest_available_income)
+      // console.log(userData)
+      //
+      // $http({
+      //   method: 'PUT',
+      //   url: 'https://thrifty-app.herokuapp.com/account',
+      //   data: userData,
+      //   headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
+      // })
+      // .success( function (data) {
+      //   console.log("User updated. " + data)
+      //   window.localStorage.email = data.email
+      //   window.localStorage.auth_token = data.auth_token
+      // })
 
       // UPDATE goal
       var amount_saved = ($scope.goals[index].amount_saved + $scope.goals[index].monthly_budget)
@@ -108,26 +109,26 @@ angular.module('thriftyApp')
     $scope.subtractSavings = function (index) {
 
       // UPDATE user
-      var latest_available_income = ($scope.available_income + $scope.goals[index].monthly_budget)
-
-      var userData = {
-        available_income: latest_available_income
-      }
-
-      console.log("Available income will be updated to $" + latest_available_income)
-      console.log(userData)
-
-      $http({
-        method: 'PUT',
-        url: 'https://thrifty-app.herokuapp.com/account',
-        data: userData,
-        headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
-      })
-      .success( function (data) {
-        console.log("User updated. " + data)
-        window.localStorage.email = data.email
-        window.localStorage.auth_token = data.auth_token
-      })
+      // var latest_available_income = ($scope.available_income + $scope.goals[index].monthly_budget)
+      //
+      // var userData = {
+      //   available_income: latest_available_income
+      // }
+      //
+      // console.log("Available income will be updated to $" + latest_available_income)
+      // console.log(userData)
+      //
+      // $http({
+      //   method: 'PUT',
+      //   url: 'https://thrifty-app.herokuapp.com/account',
+      //   data: userData,
+      //   headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
+      // })
+      // .success( function (data) {
+      //   console.log("User updated. " + data)
+      //   window.localStorage.email = data.email
+      //   window.localStorage.auth_token = data.auth_token
+      // })
 
       // UPDATE goal
       var amount_saved = ($scope.goals[index].amount_saved - $scope.goals[index].monthly_budget)

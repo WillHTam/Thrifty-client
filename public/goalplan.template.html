@@ -16,7 +16,7 @@
       <h4>for {{time_left}} {{unit()}}</h4>
       <md-slider-container>
         <span><i class="fa fa-hourglass-half fa-lg" aria-hidden="true"></i></span>
-        <md-slider flex min="{{min_time}}" max="{{max_time()}}" ng-model="time_left" ng-change="time_left_changed()" aria-label="time_left">
+        <md-slider flex min="{{min_time()}}" max="{{max_time()}}" ng-model="time_left" ng-change="time_left_changed()" aria-label="time_left">
         </md-slider>
         <md-input-container>
           <input id="time-left-input" flex type="number" ng-model="time_left" ng-change="time_left_changed()" aria-label="time_left" aria-controls="time-left-slider">
