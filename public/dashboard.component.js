@@ -100,5 +100,53 @@ angular.module('thriftyApp')
 
     } // end addSavings()
 
+    // SUBTRACT savings (assuming it happens once a month)
+    $scope.subtractSavings = function (index) {
+
+      // UPDATE user
+      var latest_available_income = ($scope.available_income + $scope.goals[index].monthly_budget)
+
+      var userData = {
+        available_income: latest_available_income
+      }
+
+      console.log("Available income will be updated to $" + latest_available_income)
+      console.log(userData)
+
+      $http({
+        method: 'PUT',
+        url: 'https://thrifty-app.herokuapp.com/account',
+        data: userData,
+        headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
+      })
+      .success( function (data) {
+        console.log("User updated. " + data)
+        window.localStorage.email = data.email
+        window.localStorage.auth_token = data.auth_token
+        $location.path('/dashboard')
+      })
+
+      // UPDATE goal
+      var amount_saved = ($scope.goals[index].amount_saved - $scope.goals[index].monthly_budget)
+
+      var time_left = ($scope.goals[index].time_left + 1)
+
+      var goalData = {
+        amount_saved: amount_saved,
+        time_left: time_left
+      }
+
+      $http({
+        method: 'PUT',
+        url: 'https://thrifty-app.herokuapp.com/goal/' + $scope.goals[index]._id,
+        data: goalData
+      })
+      .success( function (data) {
+        console.log('Goal updated' + data)
+        $location.path('/dashboard')
+      })
+
+    } // end subtractSavings()
+
   } // end controller
 })
