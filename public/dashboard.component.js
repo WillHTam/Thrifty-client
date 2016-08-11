@@ -1,7 +1,7 @@
 angular.module('thriftyApp')
 .component('dashboard', {
   templateUrl: 'dashboard.template.html',
-  controller: function ($http, $scope, $location, $route) {
+  controller: function ($http, $scope, $location, $window) {
     if (window.localStorage.auth_token == undefined) {
       $location.path('/')
     }
@@ -99,7 +99,7 @@ angular.module('thriftyApp')
       })
       .success( function (data) {
         console.log('Goal updated' + data)
-        $route.reload()
+        $window.location.reload()
       })
 
     } // end addSavings()
@@ -146,7 +146,7 @@ angular.module('thriftyApp')
       })
       .success( function (data) {
         console.log('Goal updated' + data)
-        $route.reload()
+        $window.location.reload()
       })
 
     } // end subtractSavings()

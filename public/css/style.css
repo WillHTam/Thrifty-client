@@ -111,6 +111,9 @@ button {
   color: rgb(255,255,255);
 }
 
+
+/*goal cards on dashboard*/
+
 .dashcards{
   width: 20em !important;
 }
@@ -131,6 +134,13 @@ button {
 .md-card-title {
   padding-right: 20px;
 }
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/*progress bar*/
 
 md-progress-linear {
   height: 20px;
