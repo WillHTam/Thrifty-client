@@ -67,16 +67,18 @@ angular.module('thriftyApp')
       }
     }
 
+
     $scope.sendData = function() {
-      var data = {
+      var goalData = {
         time_left: $scope.time_left,
         monthly_budget: $scope.monthly_budget,
       }
 
+      // UPDATE goal
       $http({
         method: 'PUT',
         url: 'https://thrifty-app.herokuapp.com/goal/' + window.localStorage.goal_id,
-        data: data,
+        data: goalData,
         headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token},
         beforeSend: function (xhr) {
           xhr.setRequestHeader('email', window.localStorage.email)
@@ -89,6 +91,7 @@ angular.module('thriftyApp')
         $location.path("/dashboard")
       })
     }
+
 
   } // end controller
 })

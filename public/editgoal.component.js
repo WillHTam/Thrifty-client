@@ -96,6 +96,6 @@ angular.module('thriftyApp')
         console.log('data')
         $location.path('/dashboard')
       })
-    }
+    } // end editGoal()
   }
 })
