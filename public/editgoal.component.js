@@ -8,7 +8,7 @@ angular.module('thriftyApp')
     }
 
     // icons
-    $scope.icons = ["graduation-cap", "home", "plane", "car", "bank", "gift", "shopping-bag"]
+    $scope.icons = ["pied-piper", "graduation-cap", "home", "paw", "plane", "car", "bank", "gift", "shopping-bag"]
 
     // GET goal data from server
     $http({

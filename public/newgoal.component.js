@@ -11,7 +11,7 @@ angular.module('thriftyApp')
     $scope.last_name = window.localStorage.last_name
 
     // icons
-    $scope.icons = ["graduation-cap", "home", "plane", "car", "bank", "gift", "shopping-bag"]
+    $scope.icons = ["pied-piper", "graduation-cap", "home", "paw", "plane", "car", "bank", "gift", "shopping-bag"]
 
     $scope.index = 0
     $scope.prev = function() {

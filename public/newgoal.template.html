@@ -37,10 +37,10 @@
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
         <label>What's it called?</label>
-        <input required md-no-asterisk type="text" ng-model="goal.name" name="goalName" minLength="1">
+        <input required md-no-asterisk type="text" ng-model="goal.name" name="goalName" minLength="1" maxlength="15">
         <!-- validation and error handling -->
         <div ng-messages="newGoalForm.goalName.$error" role="alert">
-          <div ng-message-exp="['required', 'minLength']">
+          <div ng-message-exp="['required', 'minLength', 'maxLength']">
             Please give it a name.
           </div>
         </div>
@@ -52,15 +52,18 @@
         <label>How much does it cost? ($)</label>
         <input required md-no-asterisk type="number" ng-model="goal.cost" name="goalCost" min="100" ng-pattern="/^[0-9]{1,7}$/">
         <!-- cost validation and error handling -->
-        <div ng-messages="newGoalForm.goalCost.$error" role="alert">
-          <div ng-message-exp="['required', 'min', 'pattern']">
+        <div ng-messages="newGoalForm.goalCost.$error" multiple md-auto-hide="false">
+          <div ng-message="min">
             Please enter at least $100.
+          </div>
+          <div ng-message="pattern">
+            Use numbers only.
           </div>
         </div>
       </md-input-container>
     </div>
 
-    <md-button class="md-raised md-primary" ng-click="sendData()">Plan Savings <i class="fa fa-chevron-right" aria-hidden="true"></i></md-button><br>
+    <md-button class="md-raised md-primary" ng-click="sendData()">Start a Savings Plan</md-button><br>
     <md-button ng-href="/#/dashboard">Dashboard</md-button>
   </md-content>
 
