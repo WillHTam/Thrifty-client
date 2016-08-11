@@ -12,7 +12,7 @@ angular.module('thriftyApp')
         $scope.editgo.name = response[0].name
         $scope.editgo.cost = response[0].cost
         $scope.editgo.time_left = response[0].time_left
-        $scope.editgo.amount_left = response[0].amount_left
+        $scope.editgo.amount_saved = response[0].amount_saved
         $scope.editgo.monthly_budget = response[0].monthly_budget
       })
 
@@ -32,7 +32,7 @@ angular.module('thriftyApp')
           name: $scope.editgo.name,
           cost: $scope.editgo.cost,
           time_left: $scope.editgo.time_left,
-          amount_left: $scope.editgo.amount_left,
+          amount_saved: $scope.editgo.amount_saved,
           monthly_budget: $scope.editgo.monthly_budget
         }
 
