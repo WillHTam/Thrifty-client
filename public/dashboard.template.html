@@ -1,4 +1,3 @@
-
 <md-content layout="column" flex>
   <md-toolbar>
      <div class="md-toolbar-tools">
@@ -22,7 +21,6 @@
     <md-card class="dashcards" md-theme="{{ 'default' }}" md-theme-watch="">
       <md-card-title>
         <md-card-title-media>
-          <!-- Pictures go in here -->
           <div class="md-media-md card-media">
             <i class="fa fa-{{goal.icon}} fa-3x" aria-hidden="true"></i>
           </div>
@@ -47,20 +45,8 @@
         </md-card-title-text>
       </md-card-title>
       <md-card-actions layout="row" layout-align="end center">
-        <!-- If you remove Action 1&2, cards with shorter text with have a shorter width too, which is super ugly -->
-
+        <a href="#/editgoal/{{goal._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></span></a>
       </md-card-actions>
     </md-card>
   </div>
 </md-content>
-
-<!--
-This is the basic text list version
-<ul>
-<li ng-repeat="goal in goals">
-<p>{{goal.name}}</p>
-<p>${{goal.amount_left}} / ${{goal.cost}}</p>
-<p>Time Remaining: {{goal.time_left}} months</p>
-<a href="#/editgoal/{{goal._id}}">Edit this Goal</a>
-</li>
-</ul> -->
