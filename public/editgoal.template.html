@@ -1,36 +1,40 @@
-<form name="goal">
-  <md-content layout="column" flex layout-padding>
-    <img ng-src="images/wordmark.png" id="wordmark">
-    <h1>Edit this goal</h1>
+<div class="centred-page">
+  <form name="goal">
+    <md-content layout="column" flex layout-padding>
+      <img ng-src="images/wordmark.png" id="wordmark">
+      <h1>Edit this goal</h1>
 
-    <div layout-gt-sm="row" id="icon-picker">
-      <i class="fa fa-chevron-left fa-2x" aria-hidden="true" ng-click="prev()"></i>
-      <div id="icon">
-        <i class="fa fa-{{goal.icon}} fa-5x" aria-hidden="true"></i>
-      </div>
-      <i class="fa fa-chevron-right fa-2x" aria-hidden="true" ng-click="next()"></i>
-    </div>
-
-    <div layout-gt-sm="row">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Name</label>
-        <input type="text" ng-model="goal.name" md-no-asterisk required>
-      </md-input-container>
-    </div>
-
-    <div layout-gt-sm="row">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Cost</label>
-        <input name="cost" type="text" ng-model="goal.cost" md-no-asterisk required min="{{(goal.cost - goal.amount_saved)}}" ng-pattern="/^[0-9]{1,7}$/">
-        <div ng-messages="goal.cost.$error" role="alert">
-          <div ng-message-exp="['required', 'min', 'pattern']">
-            Oops, that's less than what you've saved so far.
-          </div>
+      <div layout-gt-sm="row" id="icon-picker">
+        <i class="fa fa-chevron-left fa-2x" aria-hidden="true" ng-click="prev()"></i>
+        <div id="icon">
+          <i class="fa fa-{{icons[index]}} fa-5x" aria-hidden="true"></i>
         </div>
-      </md-input-container>
-    </div>
+        <i class="fa fa-chevron-right fa-2x" aria-hidden="true" ng-click="next()"></i>
+      </div>
 
-    <md-button class="md-raised md-primary" href="#/dashboard" ng-click="editGoal()">Save Changes</md-button>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Name</label>
+          <input type="text" ng-model="goal.name" md-no-asterisk required>
+        </md-input-container>
+      </div>
 
-  </md-content>
-</form>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Cost</label>
+          <input name="cost" type="text" ng-model="goal.cost" md-no-asterisk required min="{{(goal.cost - goal.amount_saved)}}" ng-pattern="/^[0-9]{1,7}$/">
+          <div ng-messages="goal.cost.$error" role="alert">
+            <div ng-message-exp="['required', 'min', 'pattern']">
+              Oops, that's less than what you've saved so far.
+            </div>
+          </div>
+        </md-input-container>
+      </div>
+
+      <md-button class="md-raised md-primary" href="#/dashboard" ng-click="editGoal()">Save Changes</md-button>
+
+      <md-button class="md-warn" ng-click="showConfirm($event)">Delete Goal</md-button>
+
+    </md-content>
+  </form>
+</div>
