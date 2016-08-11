@@ -10,6 +10,7 @@ angular.module('thriftyApp')
       .success( function(response) {
         console.log(response)
         $scope.goal.name = response[0].name
+        $scope.goal.icon = response[0].icon
         $scope.goal.cost = response[0].cost
         $scope.goal.time_left = response[0].time_left
         $scope.goal.amount_left = response[0].amount_left
@@ -27,9 +28,31 @@ angular.module('thriftyApp')
         })
       }
 
+      // icons
+      $scope.icons = ["graduation-cap", "home", "plane", "car", "bank", "gift", "shopping-bag"]
+
+      $scope.index = 0
+      $scope.prev = function() {
+        if ($scope.index === 0) {
+          $scope.index = $scope.icons.length - 1;
+        }
+        else {
+          $scope.index -= 1;
+        }
+        console.log($scope.icons[$scope.index])
+      }
+      $scope.next = function() {
+        $scope.index += 1;
+        if ($scope.index === $scope.icons.length) {
+          $scope.index = 0;
+        }
+        console.log($scope.icons[$scope.index])
+      }
+
       $scope.editGoal = function () {
         var data = {
           name: $scope.goal.name,
+          icon: $scope.icons[$scope.index],
           cost: $scope.goal.cost,
           time_left: $scope.goal.time_left,
           amount_left: $scope.goal.amount_left,
