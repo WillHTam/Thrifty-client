@@ -11,6 +11,7 @@ angular.module('thriftyApp')
         console.log(response)
         $scope.first_name = response.first_name
         $scope.last_name = response.last_name
+        $scope.available_income = response.available_income
       })
 
       $http({
