@@ -1,8 +1,32 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div layout="row">
+      <div class="toolbar-logo" ng-href="/#/">
+        <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+      </div>
+      <div class="wordmark">THRIFTY</div>
+    </div>
+    <span flex></span>
+    <div class="title-spaced">
+      <h1>{{first_name}} {{last_name}}
+          <i class="fa fa-user" aria-hidden="true"></i>
+          ${{monthly_income | number:0}}
+      </h1>
+    </div>
+    <span flex></span>
+    <md-button ng-click="goEdit()" aria-label="My Account">
+      My Account
+    </md-button>
+    <md-button aria-label="Log out" ng-click="logOut()">
+      Log out
+    </md-button>
+  </div>
+</md-toolbar>
+
 <div class="centred-page">
   <form name="goal">
     <md-content layout="column" flex layout-padding>
-      <img ng-src="images/wordmark.png" id="wordmark">
-      <h1>Edit this goal</h1>
+      <h1>Edit goal</h1>
 
       <div layout-gt-sm="row" id="icon-picker">
         <i class="fa fa-chevron-left fa-2x" aria-hidden="true" ng-click="prev()"></i>
@@ -37,11 +61,15 @@
         </md-input-container>
       </div>
 
-      <md-button class="md-raised md-primary" href="#/dashboard" ng-click="editGoal()">Save and Go Back</md-button>
+      <md-button class="md-raised md-primary" ng-click="editGoal()">Save Goal</md-button>
+      <md-button class="md-raised md-primary" ng-click="editGoalPlan()">Edit Plan</md-button>
 
-      <md-button class="md-warn" ng-click="showConfirm($event)">Delete Goal</md-button>
-      <md-button ng-href="/#/dashboard">Back to Dashboard</md-button>
+      <div layout="row" flex class="buttons-beside">
+      <md-button class="md-warn" ng-click="showConfirm($event)">
+        Delete Goal</md-button>
+        <md-button ng-href="/#/dashboard">
+        Back to Dashboard</md-button>
 
-    </md-content>
-  </form>
-</div>
+        </md-content>
+      </form>
+    </div>

@@ -18,6 +18,9 @@ angular.module('thriftyApp')
     })
     .success( function(response) {
       console.log(response)
+      $scope.first_name = response.first_name
+      $scope.last_name = response.last_name
+      $scope.monthly_income = response.monthly_income
       $scope.available_income = response.available_income
     })
 
@@ -136,8 +139,12 @@ angular.module('thriftyApp')
       .success( function (data) {
         console.log('success')
         console.log('data')
-        $location.path('/dashboard')
+        $location.path('/editgoal/'  + $routeParams.id)
       })
     } // end editGoal()
+
+    $scope.editGoalPlan = function () {
+      $location.path('/editgoalplan/' + $routeParams.id)
+    }
   }
 })
