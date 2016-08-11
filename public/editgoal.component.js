@@ -9,11 +9,12 @@ angular.module('thriftyApp')
       })
       .success( function(response) {
         console.log(response)
-        $scope.editgo.name = response[0].name
-        $scope.editgo.cost = response[0].cost
-        $scope.editgo.time_left = response[0].time_left
-        $scope.editgo.amount_saved = response[0].amount_saved
-        $scope.editgo.monthly_budget = response[0].monthly_budget
+        $scope.goal.name = response[0].name
+        $scope.goal.icon = response[0].icon
+        $scope.goal.cost = response[0].cost
+        $scope.goal.time_left = response[0].time_left
+        $scope.goal.amount_saved = response[0].amount_saved
+        $scope.goal.monthly_budget = response[0].monthly_budget
       })
 
       $scope.deleteGoal = function () {
@@ -27,13 +28,35 @@ angular.module('thriftyApp')
         })
       }
 
+      // icons
+      $scope.icons = ["graduation-cap", "home", "plane", "car", "bank", "gift", "shopping-bag"]
+
+      $scope.index = 0
+      $scope.prev = function() {
+        if ($scope.index === 0) {
+          $scope.index = $scope.icons.length - 1;
+        }
+        else {
+          $scope.index -= 1;
+        }
+        console.log($scope.icons[$scope.index])
+      }
+      $scope.next = function() {
+        $scope.index += 1;
+        if ($scope.index === $scope.icons.length) {
+          $scope.index = 0;
+        }
+        console.log($scope.icons[$scope.index])
+      }
+
       $scope.editGoal = function () {
         var data = {
-          name: $scope.editgo.name,
-          cost: $scope.editgo.cost,
-          time_left: $scope.editgo.time_left,
-          amount_saved: $scope.editgo.amount_saved,
-          monthly_budget: $scope.editgo.monthly_budget
+          name: $scope.goal.name,
+          icon: $scope.icons[$scope.index],
+          cost: $scope.goal.cost,
+          time_left: $scope.goal.time_left,
+          amount_saved: $scope.goal.amount_saved,
+          monthly_budget: $scope.goal.monthly_budget
         }
 
         $http({
