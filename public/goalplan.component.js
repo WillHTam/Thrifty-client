@@ -96,7 +96,6 @@ angular.module('thriftyApp')
         beforeSend: function (xhr) {
           xhr.setRequestHeader('email', window.localStorage.email)
           xhr.setRequestHeader('auth_token', window.localStorage.auth_token)
-          // ADD CUTE WAITING UI HERE
         }
       })
       .success( function (data) {

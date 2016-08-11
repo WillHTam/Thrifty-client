@@ -19,6 +19,11 @@ angular.module('thriftyApp')
       $scope.last_name = response.last_name
     })
 
+    $scope.goEdit = function () {
+      console.log('button pressed')
+      $location.path('/account')
+    }
+
     // icons
     $scope.icons = ["pied-piper", "graduation-cap", "home", "paw", "plane", "car", "bank", "gift", "shopping-bag"]
 

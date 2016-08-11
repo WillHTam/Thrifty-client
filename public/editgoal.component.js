@@ -10,7 +10,18 @@ angular.module('thriftyApp')
     // icons
     $scope.icons = ["pied-piper", "graduation-cap", "home", "paw", "plane", "car", "bank", "gift", "shopping-bag"]
 
-    // GET goal data from server
+    // GET user data
+    $http({
+      method: 'GET',
+      url: 'https://thrifty-app.herokuapp.com/user',
+      headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
+    })
+    .success( function(response) {
+      console.log(response)
+      $scope.available_income = response.available_income
+    })
+
+    // GET goal data
     $http({
       method: 'GET',
       url: 'https://thrifty-app.herokuapp.com/goal/' + $routeParams.id,
@@ -43,23 +54,50 @@ angular.module('thriftyApp')
 
       $mdDialog.show(confirm).then(function() {
         $scope.deleteGoal();
-        $location.path('/dashboard');
       }, function() {
         $scope.status = 'Your goal is safe.';
       });
     };
 
+
     // DELETE goal
     $scope.deleteGoal = function () {
+
+      $scope.triggerDelete = false
+
+      var latest_available_income = ($scope.available_income + $scope.goal.monthly_budget)
+
+      var userData = {
+        available_income: latest_available_income
+      }
+
+      // UPDATE USER available_income with freed up budget
+      console.log("Available income will be updated to $" + latest_available_income)
+      console.log(userData)
+
       $http({
-        method: 'DELETE',
-        url: 'https://thrifty-app.herokuapp.com/goal/' + $routeParams.id
+        method: 'PUT',
+        url: 'https://thrifty-app.herokuapp.com/account',
+        data: userData,
+        headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
       })
-      .success( function(response) {
-        console.log(response)
-        $location.path('/dashboard')
+      .success( function (data) {
+        console.log("USER HAS MORE MONEYS " + data)
+        $scope.triggerDelete = true
       })
-    }
+
+      if ($scope.triggerDelete = true) {
+        $http({
+          method: 'DELETE',
+          url: 'https://thrifty-app.herokuapp.com/goal/' + $routeParams.id
+        })
+        .success( function(response) {
+          console.log(response + "GOAL DELETED")
+          $location.path('/dashboard')
+        })
+      }
+
+    } // end deleteGoal()
 
     // ICON PICKER
     $scope.prev = function() {

@@ -132,8 +132,8 @@ button {
   box-shadow: none;
 }
 
-.md-button.md-default-theme.md-fab, .md-button.md-fab {
-  color: rgb(255,255,255);
+.md-button.md-default-theme.md-accent.md-raised, .md-button.md-accent.md-raised, .md-button.md-default-theme.md-accent.md-fab, .md-button.md-accent.md-fab .new-goal {
+  color: rgb(255,255,255) !important;
 }
 
 

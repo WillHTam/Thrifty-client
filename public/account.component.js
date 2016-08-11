@@ -14,8 +14,8 @@ angular.module('thriftyApp')
       .success( function (response) {
         $scope.account.first_name = response.first_name
         $scope.account.last_name = response.last_name
-        $scope.account.email=response.email
-        $scope.account.monthly_income=response.monthly_income
+        $scope.account.email = response.email
+        $scope.account.monthly_income = response.monthly_income
       })
 
       $scope.accountChange = function() {
@@ -39,7 +39,7 @@ angular.module('thriftyApp')
           window.localStorage.auth_token = data.auth_token
           $location.path('/dashboard')
         })
-      }
+      } // end accountChange()
 
       $scope.checkHeaders = function () {
         console.log(window.localStorage.email)
@@ -53,7 +53,7 @@ angular.module('thriftyApp')
           headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
         })
         .success( function (data) {
-          console.log('User deleted.')
+          console.log(data)
         })
       }
 
@@ -71,6 +71,7 @@ angular.module('thriftyApp')
 
         $mdDialog.show(confirm).then(function() {
           $scope.deleteUser();
+          console.log($scope.account.email + ' account deleted. Redirecting...')
           $location.path('/');
         }, function() {
           // $scope.status = 'Your goal is safe.';
