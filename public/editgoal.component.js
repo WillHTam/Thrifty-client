@@ -1,7 +1,7 @@
 angular.module('thriftyApp')
 .component('editgoal', {
   templateUrl: 'editgoal.template.html',
-  controller: function ($scope, $http, $routeParams, $location) {
+  controller: function ($scope, $http, $routeParams, $location, $mdDialog) {
 
     // icons
     $scope.icons = ["graduation-cap", "home", "plane", "car", "bank", "gift", "shopping-bag"]
@@ -22,6 +22,27 @@ angular.module('thriftyApp')
 
       $scope.index = $scope.icons.indexOf($scope.goal.icon)
     })
+
+    $scope.status = '  ';
+
+    $scope.showConfirm = function(ev) {
+      // Appending dialog to document.body to cover sidenav in docs app
+      var confirm = $mdDialog.confirm()
+      .title('Are you sure you want to delete this goal?')
+      .textContent('This action cannot be reversed.')
+      .ariaLabel('Are you sure?')
+      .targetEvent(ev)
+      .ok("Delete goal")
+      .cancel('Keep goal');
+
+      $mdDialog.show(confirm).then(function() {
+        $scope.deleteGoal();
+        $location.path('/dashboard');
+      }, function() {
+        $scope.status = 'Your goal is safe.';
+      });
+    };
+
 
     $scope.deleteGoal = function () {
       $http({
