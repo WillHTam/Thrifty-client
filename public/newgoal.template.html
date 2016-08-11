@@ -1,24 +1,30 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
-    <md-button aria-label="Log out" ng-click="logOut()">
-      Log out
-    </md-button>
-    <h2>
-      <span>Hello, {{first_name}} {{last_name}}. You have $ {{available_income}} available.</span>
-    </h2>
+    <div layout="row">
+      <div class="toolbar-logo" ng-href="/#/">
+        <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+      </div>
+      <div class="wordmark">THRIFTY</div>
+    </div>
     <span flex></span>
-    <md-button ng-click="goEdit()" class="md-raised" aria-label="My Account">
+    <div class="title-spaced">
+      <h1>{{first_name}} {{last_name}}
+          <i class="fa fa-user" aria-hidden="true"></i>
+      </h1>
+    </div>
+    <span flex></span>
+    <md-button ng-click="goEdit()" aria-label="My Account">
       My Account
     </md-button>
-    <md-button ng-click="newGoal()" class="md-fab md-mini" aria-label="New Goal">
-      <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+    <md-button aria-label="Log out" ng-click="logOut()">
+      Log out
     </md-button>
   </div>
 </md-toolbar>
 
 <form name="newGoalForm">
-  <md-content layout="column" flex layout-padding>
-    <h1>What are you saving up for?</h1>
+  <md-content layout="column" flex>
+    <h1>What are you saving up for?</h1><br>
 
     <div layout-gt-sm="row" id="icon-picker">
       <i class="fa fa-chevron-left fa-2x" aria-hidden="true" ng-click="prev()"></i>
@@ -26,7 +32,7 @@
         <i class="fa fa-{{icons[index]}} fa-5x" aria-hidden="true"></i>
       </div>
       <i class="fa fa-chevron-right fa-2x" aria-hidden="true" ng-click="next()"></i>
-    </div>
+    </div><br>
 
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
@@ -54,7 +60,8 @@
       </md-input-container>
     </div>
 
-    <md-button class="md-raised md-primary" ng-click="sendData()">Start Planning</md-button>
+    <md-button class="md-raised md-primary" ng-click="sendData()">Plan Savings <i class="fa fa-chevron-right" aria-hidden="true"></i></md-button><br>
+    <md-button ng-href="/#/dashboard">Dashboard</md-button>
   </md-content>
 
 </form>

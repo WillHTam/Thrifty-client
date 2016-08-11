@@ -2,9 +2,13 @@ angular.module('thriftyApp')
 .component('newgoal', {
   templateUrl: 'newgoal.template.html',
   controller: function ($http, $scope, $location) {
+
     if (window.localStorage.auth_token == undefined) {
       $location.path('/')
     }
+
+    $scope.first_name = window.localStorage.first_name
+    $scope.last_name = window.localStorage.last_name
 
     // icons
     $scope.icons = ["graduation-cap", "home", "plane", "car", "bank", "gift", "shopping-bag"]

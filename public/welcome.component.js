@@ -11,6 +11,8 @@ angular.module('thriftyApp')
         console.log('Cleared!')
         window.localStorage.email = undefined
         window.localStorage.auth_token = undefined
+        window.localStorage.first_name = undefined
+        window.localStorage.last_name = undefined
       }
     }
   })
