@@ -44,18 +44,29 @@ h1 {
   font-size: 1.3em;
 }
 
-#logo-wordmark {
-  height: 200px;
-}
-
 @media screen and (max-width: 480px) {
   #logo-wordmark {
     height: 100px;
   }
 }
 
+#logo-wordmark {
+  height: 150px;
+}
+
+#toolbar-logo {
+  height: 25px;
+}
+
 #wordmark {
   height: 30px;
+}
+
+.wordmark {
+  letter-spacing: 0.3em;
+  font-weight: bold;
+  padding-left: 10px;
+  font-size: 1.2em;
 }
 
 @media screen and (max-width: 480px) {

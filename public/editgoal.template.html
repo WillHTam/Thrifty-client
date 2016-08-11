@@ -15,17 +15,23 @@
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Name</label>
-          <input type="text" ng-model="goal.name" md-no-asterisk required>
+          <input type="text" ng-model="goal.name" md-no-asterisk required minLength="1">
+          <!--  validation and error handling -->
+          <div ng-messages="goal.goalName.$error" role="alert">
+            <div ng-message-exp="['required', 'minLength']">
+              Please give it a name.
+            </div>
+          </div>
         </md-input-container>
       </div>
 
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Cost</label>
-          <input name="cost" type="text" ng-model="goal.cost" md-no-asterisk required min="{{(goal.cost - goal.amount_saved)}}" ng-pattern="/^[0-9]{1,7}$/">
-          <div ng-messages="goal.cost.$error" role="alert">
+          <input name="goalCost" type="text" ng-model="goal.cost" md-no-asterisk required min="{{(goal.amount_saved)}}" ng-pattern="/^[0-9]{1,7}$/">
+          <div ng-messages="goal.goalCost.$error" role="alert">
             <div ng-message-exp="['required', 'min', 'pattern']">
-              Oops, that's less than what you've saved so far.
+              Oops, that's less than {{(goal.amount_saved)}} you've saved so far.
             </div>
           </div>
         </md-input-container>
@@ -34,6 +40,7 @@
       <md-button class="md-raised md-primary" href="#/dashboard" ng-click="editGoal()">Save and Go Back</md-button>
 
       <md-button class="md-warn" ng-click="showConfirm($event)">Delete Goal</md-button>
+      <md-button ng-href="/#/dashboard">Back to Dashboard</md-button>
 
     </md-content>
   </form>

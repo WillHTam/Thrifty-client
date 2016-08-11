@@ -1,7 +1,7 @@
 <form name="account">
   <md-content layout="column" flex layout-padding>
     <img ng-src="images/wordmark.png" id="wordmark">
-    <h1>Edit/Delete Your Account Here</h1>
+    <h1>My Account</h1>
 
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
@@ -43,9 +43,10 @@
         <input type="text" ng-model="account.monthly_income" md-no-asterisk required>
       </md-input-container>
     </div>
-    <md-button class="md-raised md-primary" href="#/dashboard" ng-click="accountChange()">Submit Changes</md-button>
-    <div>
-      <md-button class="md-warn" ng-click="showConfirm($event)">Delete Your Account</md-button>
+    <md-button class="md-raised md-primary" ng-click="accountChange()">Save and Go Back</md-button>
+    <div layout="column">
+      <md-button class="md-warn" ng-click="showConfirm($event)">Delete My Account</md-button>
+      <md-button ng-href="/#/dashboard">Back to Dashboard</md-button>
     </div>
   </md-content>
 </form>

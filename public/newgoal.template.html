@@ -1,3 +1,21 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <md-button aria-label="Log out" ng-click="logOut()">
+      Log out
+    </md-button>
+    <h2>
+      <span>Hello, {{first_name}} {{last_name}}. You have $ {{available_income}} available.</span>
+    </h2>
+    <span flex></span>
+    <md-button ng-click="goEdit()" class="md-raised" aria-label="My Account">
+      My Account
+    </md-button>
+    <md-button ng-click="newGoal()" class="md-fab md-mini" aria-label="New Goal">
+      <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+    </md-button>
+  </div>
+</md-toolbar>
+
 <form name="newGoalForm">
   <md-content layout="column" flex layout-padding>
     <h1>What are you saving up for?</h1>
@@ -14,7 +32,7 @@
       <md-input-container class="md-block" flex-gt-sm>
         <label>What's it called?</label>
         <input required md-no-asterisk type="text" ng-model="goal.name" name="goalName" minLength="1">
-        <!-- income validation and error handling -->
+        <!-- validation and error handling -->
         <div ng-messages="newGoalForm.goalName.$error" role="alert">
           <div ng-message-exp="['required', 'minLength']">
             Please give it a name.

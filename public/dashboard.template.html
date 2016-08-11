@@ -45,8 +45,8 @@
         </md-card-title-text>
       </md-card-title>
       <md-card-actions layout="row" class="card-actions">
-        <md-button ng-click="addSavings($index)">Deposit ${{goal.monthly_budget}}</md-button>
-        <md-button ng-click="subtractSavings($index)">Deduct ${{goal.monthly_budget}}</md-button>
+        <md-button ng-click="subtractSavings($index)">- ${{goal.monthly_budget}}</md-button>
+        <md-button ng-click="addSavings($index)">+ ${{goal.monthly_budget}}</md-button>
       </md-card-actions>
     </md-card>
   </div>
