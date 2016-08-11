@@ -61,13 +61,14 @@ angular.module('thriftyApp')
     $scope.addSavings = function (index) {
 
       // UPDATE user
-      var available_income = ($scope.available_income - $scope.goals[index].monthly_budget)
+      var latest_available_income = ($scope.available_income - $scope.goals[index].monthly_budget)
 
       var userData = {
-        available_income: available_income,
+        available_income: latest_available_income
       }
 
-      console.log("Available income will be updated to $" + available_income)
+      console.log("Available income will be updated to $" + latest_available_income)
+      console.log(userData)
 
       $http({
         method: 'PUT',
@@ -98,8 +99,7 @@ angular.module('thriftyApp')
         data: goalData
       })
       .success( function (data) {
-        console.log('success')
-        console.log('data')
+        console.log('Goal updated' + data)
         $location.path('/dashboard')
       })
 
