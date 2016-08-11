@@ -28,7 +28,8 @@ angular.module('thriftyApp')
       var data = {
         icon: $scope.icons[$scope.index],
         name: $scope.goal.name,
-        cost: $scope.goal.cost
+        cost: $scope.goal.cost,
+        amount_saved: 0
       }
 
       $http({
