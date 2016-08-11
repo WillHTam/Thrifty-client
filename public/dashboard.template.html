@@ -42,8 +42,8 @@
             <span class="md-subhead">Saved ${{goal.amount_saved}} / ${{goal.cost}}</span>
             <span class="md-subhead" style="color:#FB8C00">{{goal.time_left}} months to go</span>
           </div>
-          <md-button class="md-raised" ng-click="addSavings($index)">Add $ {{goal.monthly_budget}}</md-button>
-          <md-button>-</md-button>
+          <md-button ng-click="addSavings($index)">Deposit ${{goal.monthly_budget}}</md-button>
+          <md-button ng-click="subtractSavings($index)">Deduct ${{goal.monthly_budget}}</md-button>
         </div>
       </md-card-title-text>
     </md-card-title>
