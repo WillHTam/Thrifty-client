@@ -23,6 +23,8 @@
 *{
   font-family: "Brandon";
   font-size: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -83,6 +85,22 @@ i.fa-chevron-left:hover, i.fa-chevron-right:hover {
   transform: scale(1.3);
 }
 
+.md-toolbar {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+
+button {
+  box-shadow: none;
+}
+
+.dashboard:first-of-type {
+  padding-top: 30px
+}
+
+.md-button.md-default-theme.md-fab, .md-button.md-fab {
+  color: rgb(255,255,255);
+}
+
 .dashcards{
   width: 20em !important;
 }
@@ -98,7 +116,6 @@ i.fa-chevron-left:hover, i.fa-chevron-right:hover {
   justify-content: space-around;
   align-items: center;
 }
-
 
 .md-card-title {
   padding-right: 20px;

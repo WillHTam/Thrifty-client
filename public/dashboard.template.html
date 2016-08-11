@@ -1,8 +1,24 @@
 
-<md-content layout="column" flex layout-padding>
-  <p>Welcome back, {{first_name}} {{last_name}}!</p>
-  <md-button ng-click="goEdit()">Edit Account Details</md-button>
-  <div ng-repeat="goal in goals">
+<md-content layout="column" flex>
+  <md-toolbar>
+     <div class="md-toolbar-tools">
+       <md-button aria-label="Log out" ng-click="logout()">
+         Log out
+       </md-button>
+       <h2>
+         <span>Welcome back, {{first_name}} {{last_name}}</span>
+       </h2>
+       <span flex></span>
+       <md-button ng-click="goEdit()" class="md-raised" aria-label="My Account">
+         My Account
+       </md-button>
+       <md-button class="md-fab md-mini" aria-label="New Goal">
+         <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+       </md-button>
+     </div>
+   </md-toolbar>
+
+  <div ng-repeat="goal in goals" class="dashboard">
     <md-card class="dashcards" md-theme="{{ 'default' }}" md-theme-watch="">
       <md-card-title>
         <md-card-title-media>
@@ -36,7 +52,6 @@
       </md-card-actions>
     </md-card>
   </div>
-  <md-button ng-click="logout()">Log Out</md-button>
 </md-content>
 
 <!--
