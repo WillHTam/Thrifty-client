@@ -20,19 +20,27 @@
   <div ng-repeat="goal in goals" class="dashboard">
     <md-card class="dashcards" md-theme="{{ 'default' }}" md-theme-watch="">
       <md-card-title style="padding-right: 30px;">
-      <md-card-title-media>
-        <div class="md-media-md card-media">
-          <i class="fa fa-{{goal.icon}} fa-3x" aria-hidden="true"></i>
-        </div>
-      </md-card-title-media>
-      <md-card-title-text>
-        <!-- edit icon -->
-        <div layout="row" class="title">
-          <div>
-            <span class="md-headline">{{goal.name}}</span>
+        <md-card-title-media>
+          <div class="md-media-md card-media">
+            <i class="fa fa-{{goal.icon}} fa-3x" aria-hidden="true"></i>
+          </div>
+        </md-card-title-media>
+        <md-card-title-text>
+          <!-- edit icon -->
+          <div layout="row" class="title">
+            <div>
+              <span class="md-headline">{{goal.name}}</span>
+            </div>
+            <div>
+              <a href="#/editgoal/{{goal._id}}"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></span></a>
+            </div>
           </div>
           <div>
-            <a href="#/editgoal/{{goal._id}}"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></span></a>
+            <md-progress-linear md-mode="determinate" value="{{( (goal.cost - goal.amount_left) / goal.cost) * 100}}"></md-progress-linear>
+          </div>
+          <div layout="column">
+            <span class="md-subhead">Saved ${{goal.cost - goal.amount_left}} / ${{goal.cost}}</span>
+            <span class="md-subhead" style="color:#FB8C00">{{goal.time_left}} months to go</span>
           </div>
         </div>
         <div>
@@ -45,8 +53,3 @@
       </md-card-title-text>
     </md-card-title>
     <!-- <md-card-actions layout="row" layout-align="end center">
-
-  </md-card-actions> -->
-</md-card>
-</div>
-</md-content>

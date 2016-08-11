@@ -26,10 +26,10 @@
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
         <label>How much does it cost? ($)</label>
-        <input required md-no-asterisk type="number" ng-model="goal.cost" name="goalCost" min="100">
+        <input required md-no-asterisk type="number" ng-model="goal.cost" name="goalCost" min="100" ng-pattern="/^[0-9]{1,7}$/">
         <!-- cost validation and error handling -->
         <div ng-messages="newGoalForm.goalCost.$error" role="alert">
-          <div ng-message-exp="['required', 'min']">
+          <div ng-message-exp="['required', 'min', 'pattern']">
             Please enter at least $100.
           </div>
         </div>

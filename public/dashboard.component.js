@@ -34,6 +34,16 @@ angular.module('thriftyApp')
         $location.path('/newgoal')
       }
 
+      $scope.prevMonth = function () {
+        console.log('Ein monate vor!')
+        $location.path('/dashboard')
+      }
+
+      $scope.nextMonth = function () {
+        console.log('Ein monate später!')
+        $location.path('/dashboard')
+      }
+
       $scope.logOut = function () {
         console.log('Cleared!')
         window.localStorage.email = undefined

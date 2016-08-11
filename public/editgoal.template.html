@@ -1,30 +1,28 @@
-<h1>Edit Goal</h1>
-<form name = "editgo">
-  <div>
-    <label>Name</label>
-    <input type="text" placeholder="{{dname}}" ng-model="editgo.name" required>
-  </div>
-  <div>
-    <label>Cost</label>
-    <input type="text" placeholder="{{dcost}}" ng-model="editgo.cost" required>
-  </div>
-  <div>
-    <label>Time Left</label>
-    <input type="text" placeholder="{{dtime_left}}" ng-model="editgo.time_left" required>
-  </div>
-  <div>
-    <label>Amount Left</label>
-    <input type="text" placeholder="{{damount_saved}}" ng-model="editgo.amount_saved"  required>
-  </div>
-  <div>
-    <label>Monthly Budget</label>
-    <input type="text" placeholder="{{dmonthly_budget}}" ng-model="editgo.monthly_budget" required>
-  </div>
-  <div>
-    <input type="submit" ng-click="editGoal()" value="Submit Changes">
-  </div>
-  <hr>
-  <div>
-    <button ng-click="deleteGoal()">DELETE THIS GOAL</button>
-  </div>
+<form name="goal">
+  <md-content layout="column" flex layout-padding>
+    <img ng-src="images/wordmark.png" id="wordmark">
+    <h1>My Account</h1>
+
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Name</label>
+        <input type="text" ng-model="goal.name" md-no-asterisk required>
+      </md-input-container>
+    </div>
+
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Cost</label>
+        <input name="cost" type="text" ng-model="goal.cost" md-no-asterisk required min="{{goal.cost - goal.amount_left}}" ng-pattern="/^[0-9]{1,7}$/">
+        <div ng-messages="goal.cost.$error" role="alert">
+          <div ng-message-exp="['required', 'min', 'pattern']">
+            Oops, that's less than what you've saved so far.
+          </div>
+        </div>
+      </md-input-container>
+    </div>
+
+    <md-button class="md-raised md-primary" href="#/dashboard" ng-click="accountChange()">Submit Changes</md-button>
+
+  </md-content>
 </form>
