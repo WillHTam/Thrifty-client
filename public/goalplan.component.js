@@ -27,8 +27,11 @@ angular.module('thriftyApp')
       $scope.available_income = response.available_income
     })
 
+    //default lowest monthly budget
     $scope.monthly_budget = 100
 
+    // default minimum 1 month
+    $scope.min_time = 1
 
     $scope.monthly_budget_changed = function () {
       $scope.time_left = Math.ceil($scope.cost / $scope.monthly_budget)
@@ -38,12 +41,13 @@ angular.module('thriftyApp')
       $scope.monthly_budget = Math.ceil($scope.cost / $scope.time_left)
     }
 
-    $scope.unit =  function () {
-      if ($scope.time_left === 1) {
-        return "month"
+    // max monthly budget
+    $scope.max_budget = function () {
+      if ($scope.cost < $scope.available_income) {
+        return $scope.cost
       }
-      else if ($scope.time_left > 1) {
-        return "months"
+      else {
+        return $scope.available_income
       }
     }
 
@@ -52,9 +56,15 @@ angular.module('thriftyApp')
       var max_time = $scope.cost / 100
       return max_time
     }
-    $scope.min_time = function () {
-      var min_time = $scope.cost / $scope.available_income
-      return min_time
+
+    // grammar fix
+    $scope.unit =  function () {
+      if ($scope.time_left === 1) {
+        return "month"
+      }
+      else if ($scope.time_left > 1) {
+        return "months"
+      }
     }
 
     $scope.sendData = function() {
