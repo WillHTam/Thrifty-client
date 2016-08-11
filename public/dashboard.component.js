@@ -29,7 +29,12 @@ angular.module('thriftyApp')
         $location.path('/account')
       }
 
-      $scope.logout = function () {
+      $scope.newGoal = function () {
+        console.log('button pressed')
+        $location.path('/newgoal')
+      }
+
+      $scope.logOut = function () {
         console.log('Cleared!')
         window.localStorage.email = undefined
         window.localStorage.auth_token = undefined

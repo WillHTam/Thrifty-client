@@ -108,6 +108,7 @@ button {
 .title {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 .card-media {
@@ -127,10 +128,14 @@ md-progress-linear {
 }
 
 md-progress-linear ._md-container {
-  height: 20px;
+  height: 15px;
   border-radius: 50px;
 }
 
 md-progress-linear ._md-container ._md-bar {
-  height: 20px;
+  height: 15px;
+}
+
+md-progress-linear.md-default-theme ._md-container, md-progress-linear ._md-container {
+  background-color: #E5E5E5;
 }

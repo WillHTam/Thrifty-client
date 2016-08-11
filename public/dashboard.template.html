@@ -1,52 +1,52 @@
 <md-content layout="column" flex>
   <md-toolbar>
-     <div class="md-toolbar-tools">
-       <md-button aria-label="Log out" ng-click="logout()">
-         Log out
-       </md-button>
-       <h2>
-         <span>Welcome back, {{first_name}} {{last_name}}</span>
-       </h2>
-       <span flex></span>
-       <md-button ng-click="goEdit()" class="md-raised" aria-label="My Account">
-         My Account
-       </md-button>
-       <md-button class="md-fab md-mini" aria-label="New Goal">
-         <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
-       </md-button>
-     </div>
-   </md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button aria-label="Log out" ng-click="logOut()">
+        Log out
+      </md-button>
+      <h2>
+        <span>Welcome back, {{first_name}} {{last_name}}</span>
+      </h2>
+      <span flex></span>
+      <md-button ng-click="goEdit()" class="md-raised" aria-label="My Account">
+        My Account
+      </md-button>
+      <md-button ng-click="newGoal()" class="md-fab md-mini" aria-label="New Goal">
+        <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+      </md-button>
+    </div>
+  </md-toolbar>
 
   <div ng-repeat="goal in goals" class="dashboard">
     <md-card class="dashcards" md-theme="{{ 'default' }}" md-theme-watch="">
-      <md-card-title>
-        <md-card-title-media>
-          <div class="md-media-md card-media">
-            <i class="fa fa-{{goal.icon}} fa-3x" aria-hidden="true"></i>
-          </div>
-        </md-card-title-media>
-        <md-card-title-text>
-          <!-- edit icon -->
-          <div layout="row" class="title">
-            <div>
-              <span class="md-headline">{{goal.name}}</span>
-            </div>
-            <div>
-              <a href="#/editgoal/{{goal._id}}"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></span></a>
-            </div>
+      <md-card-title style="padding-right: 30px;">
+      <md-card-title-media>
+        <div class="md-media-md card-media">
+          <i class="fa fa-{{goal.icon}} fa-3x" aria-hidden="true"></i>
+        </div>
+      </md-card-title-media>
+      <md-card-title-text>
+        <!-- edit icon -->
+        <div layout="row" class="title">
+          <div>
+            <span class="md-headline">{{goal.name}}</span>
           </div>
           <div>
-            <md-progress-linear md-mode="determinate" value="{{( (goal.cost - goal.amount_left) / goal.cost) * 100}}"></md-progress-linear>
+            <a href="#/editgoal/{{goal._id}}"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></span></a>
           </div>
-          <div layout="column">
-            <span class="md-subhead">Saved ${{goal.cost - goal.amount_left}} / ${{goal.cost}}</span>
-            <span class="md-subhead">{{goal.time_left}} months to go</span>
-          </div>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-actions layout="row" layout-align="end center">
-        <a href="#/editgoal/{{goal._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></span></a>
-      </md-card-actions>
-    </md-card>
-  </div>
+        </div>
+        <div>
+          <md-progress-linear md-mode="determinate" value="{{( (goal.cost - goal.amount_left) / goal.cost) * 100}}"></md-progress-linear>
+        </div>
+        <div layout="column">
+          <span class="md-subhead">Saved ${{goal.cost - goal.amount_left}} / ${{goal.cost}}</span>
+          <span class="md-subhead" style="color:#FB8C00">{{goal.time_left}} months to go</span>
+        </div>
+      </md-card-title-text>
+    </md-card-title>
+    <!-- <md-card-actions layout="row" layout-align="end center">
+
+  </md-card-actions> -->
+</md-card>
+</div>
 </md-content>
