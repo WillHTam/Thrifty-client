@@ -3,12 +3,21 @@ angular.module('thriftyApp')
   templateUrl: 'newgoal.template.html',
   controller: function ($http, $scope, $location) {
 
+    // UNAUTHORISED ENTRY
     if (window.localStorage.auth_token == undefined) {
       $location.path('/')
     }
 
-    $scope.first_name = window.localStorage.first_name
-    $scope.last_name = window.localStorage.last_name
+    $http({
+      method: 'GET',
+      url: 'https://thrifty-app.herokuapp.com/user',
+      headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
+    })
+    .success( function(response) {
+      console.log(response)
+      $scope.first_name = response.first_name
+      $scope.last_name = response.last_name
+    })
 
     // icons
     $scope.icons = ["pied-piper", "graduation-cap", "home", "paw", "plane", "car", "bank", "gift", "shopping-bag"]
@@ -32,7 +41,9 @@ angular.module('thriftyApp')
     }
 
     $scope.sendData = function() {
-      var data = {
+
+      // UPDATE GOAL
+      var goalData = {
         icon: $scope.icons[$scope.index],
         name: $scope.goal.name,
         cost: $scope.goal.cost,
@@ -42,7 +53,7 @@ angular.module('thriftyApp')
       $http({
         method: 'POST',
         url: 'https://thrifty-app.herokuapp.com/newgoal',
-        data: data,
+        data: goalData,
         headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token},
         beforeSend: function (xhr) {
           xhr.setRequestHeader('email', window.localStorage.email)
@@ -54,5 +65,6 @@ angular.module('thriftyApp')
         console.log("Goal created! " + data)
         $location.path("/goalplan")
       })
-    }
+
+    } // end sendData()
   }})

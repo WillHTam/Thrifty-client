@@ -132,10 +132,6 @@ button {
   box-shadow: none;
 }
 
-.dashboard:first-of-type {
-  padding-top: 30px
-}
-
 .md-button.md-default-theme.md-fab, .md-button.md-fab {
   color: rgb(255,255,255);
 }

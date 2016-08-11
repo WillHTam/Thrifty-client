@@ -33,15 +33,31 @@ angular.module('thriftyApp')
     //default lowest monthly budget
     $scope.monthly_budget = 100
 
+    // max monthly budget
+    $scope.max_budget = function () {
+      if ($scope.cost < $scope.available_income) {
+        return $scope.cost
+      }
+      else if ($scope.cost > $scope.available_income) {
+        return $scope.cost / $scope.min_time()
+      }
+    }
+
     // default minimum 1 month
     $scope.min_time = function() {
       var min_time = $scope.cost / $scope.available_income
       if (min_time > 1) {
-        return min_time
+        return Math.ceil(min_time)
       }
       else {
         return 1
       }
+    }
+
+    // if user saves minimum of $100 / month
+    $scope.max_time = function () {
+      var max_time = $scope.cost / 100
+      return max_time
     }
 
     $scope.monthly_budget_changed = function () {
@@ -50,22 +66,6 @@ angular.module('thriftyApp')
 
     $scope.time_left_changed = function () {
       $scope.monthly_budget = Math.ceil($scope.cost / $scope.time_left)
-    }
-
-    // max monthly budget
-    $scope.max_budget = function () {
-      if ($scope.cost < $scope.available_income) {
-        return $scope.cost
-      }
-      else {
-        return $scope.available_income
-      }
-    }
-
-    // if user saves minimum of $100 / month
-    $scope.max_time = function () {
-      var max_time = $scope.cost / 100
-      return max_time
     }
 
     // grammar fix
@@ -101,7 +101,29 @@ angular.module('thriftyApp')
         console.log("Goal created! " + data)
         $location.path("/dashboard")
       })
-    }
+
+      // UPDATE USER available_income
+      var latest_available_income = ($scope.available_income - $scope.monthly_budget)
+
+      var userData = {
+        available_income: latest_available_income
+      }
+
+      console.log("Available income will be updated to $" + latest_available_income)
+      console.log(userData)
+
+      $http({
+        method: 'PUT',
+        url: 'https://thrifty-app.herokuapp.com/account',
+        data: userData,
+        headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
+      })
+      .success( function (data) {
+        console.log("User updated. " + data)
+      })
+
+    } // end sendData()
+
 
 
   } // end controller

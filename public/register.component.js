@@ -18,8 +18,6 @@ angular.module('thriftyApp')
           console.log(data)
           window.localStorage.email = data.email
           window.localStorage.auth_token = data.auth_token
-          window.localStorage.first_name = data.first_name
-          window.localStorage.last_name = data.last_name
           $location.path('/getstarted')
         })
       }

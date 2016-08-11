@@ -24,12 +24,17 @@
 </md-toolbar>
 
 <md-content layout="column" flex>
+  <!-- LOADING UI -->
+  <md-progress-circular md-mode="indeterminate" class="md-hue-1" md-diameter="20px" ng-show="isLoading"></md-progress-circular>
+
   <h1>$ {{available_income | number:0}}</h1>
   <p class="title-spaced">available</p><br>
   <md-button ng-click="newGoal()" class="md-fab md-mini" aria-label="New Goal">
     <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
-  </md-button>
+  </md-button><br>
 
+  <!-- LOADING UI -->
+  <md-progress-circular md-mode="indeterminate" class="md-hue-1" md-diameter="70" ng-show="isLoading"></md-progress-circular>
   <!-- GOAL CARDS -->
   <div ng-repeat="goal in goals" class="dashboard">
     <md-card class="dashcards" md-theme="{{ 'default' }}" md-theme-watch="">

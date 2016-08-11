@@ -37,7 +37,7 @@
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
         <label>What's it called?</label>
-        <input required md-no-asterisk type="text" ng-model="goal.name" name="goalName" minLength="1" maxlength="15">
+        <input required md-no-asterisk type="text" ng-model="goal.name" name="goalName" minLength="1" maxlength="40">
         <!-- validation and error handling -->
         <div ng-messages="newGoalForm.goalName.$error" role="alert">
           <div ng-message-exp="['required', 'minLength', 'maxLength']">

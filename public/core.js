@@ -11,52 +11,52 @@ app.config(function($mdThemingProvider) {
   $mdThemingProvider.definePalette('minty', mintyMap);
   // Use that theme for the primary intentions
   $mdThemingProvider.theme('default')
-    .primaryPalette('minty', {
-      'default': '500', // by default use shade 400 from the teal palette for primary intentions
-      'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
-      'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
-      'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
-    })
-    // If you specify less than all of the keys, it will inherit from the
-    // default shades
-    .accentPalette('orange', {
-      'default': '600' // use shade 200 for default, and keep all other shades the same
-    });
+  .primaryPalette('minty', {
+    'default': '500', // by default use shade 500 from the palette for primary intentions
+    'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
+    'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
+    'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+  })
+  // If you specify less than all of the keys, it will inherit from the
+  // default shades
+  .accentPalette('orange', {
+    'default': '600' // use shade 200 for default, and keep all other shades the same
+  });
 });
 
 app.config(function ($routeProvider) {
   $routeProvider
-    .when('/', {
-      template: '<welcome></welcome>'
-    })
-    .when('/register', {
-      template: '<register></register>'
-    })
-    .when('/getstarted', {
-      template: '<getstarted></getstarted>'
-    })
-    .when('/login', {
-      template: '<login></login>'
-    })
-    .when('/dashboard', {
-      template: '<dashboard></dashboard>'
-    })
-    .when('/newgoal', {
-      template: '<newgoal></newgoal>'
-    })
-    .when('/goalplan', {
-      template: '<goalplan></goalplan>'
-    })
-    .when('/editgoalplan', {
-      template: '<editplan></editplan>'
-    })
-    .when('/editgoal', {
-      template: '<editgoal></editgoal>'
-    })
-    .when('/account', {
-      template: '<account></account>'
-    })
-    .when('/editgoal/:id/', {
-      template: '<editgoal></editgoal>'
-    })
+  .when('/', {
+    template: '<welcome></welcome>'
+  })
+  .when('/register', {
+    template: '<register></register>'
+  })
+  .when('/getstarted', {
+    template: '<getstarted></getstarted>'
+  })
+  .when('/login', {
+    template: '<login></login>'
+  })
+  .when('/dashboard', {
+    template: '<dashboard></dashboard>'
+  })
+  .when('/newgoal', {
+    template: '<newgoal></newgoal>'
+  })
+  .when('/goalplan', {
+    template: '<goalplan></goalplan>'
+  })
+  .when('/editgoalplan', {
+    template: '<editplan></editplan>'
+  })
+  .when('/editgoal', {
+    template: '<editgoal></editgoal>'
+  })
+  .when('/account', {
+    template: '<account></account>'
+  })
+  .when('/editgoal/:id/', {
+    template: '<editgoal></editgoal>'
+  })
 })
