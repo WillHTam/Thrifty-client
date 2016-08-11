@@ -2,6 +2,9 @@ angular.module('thriftyApp')
 .component('goalplan', {
   templateUrl: 'goalplan.template.html',
   controller: function ($http, $scope, $location) {
+    if (window.localStorage.auth_token == undefined) {
+      $location.path('/')
+    }
 
     // get current goal's ID and cost
     $http({

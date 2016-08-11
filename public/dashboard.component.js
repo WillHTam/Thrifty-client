@@ -2,6 +2,11 @@ angular.module('thriftyApp')
 .component('dashboard', {
   templateUrl: 'dashboard.template.html',
   controller: function ($http, $scope, $location) {
+    if (window.localStorage.auth_token == undefined) {
+      $location.path('/')
+    }
+
+
     $http({
       method: 'GET',
       url: 'https://thrifty-app.herokuapp.com/user',

@@ -2,6 +2,10 @@ angular.module('thriftyApp')
   .component('getstarted', {
     templateUrl: 'getstarted.template.html',
     controller: function($http, $scope, $location) {
+      if (window.localStorage.auth_token == undefined) {
+        $location.path('/')
+      }
+
       $scope.sendData = function() {
 
         var data = {
