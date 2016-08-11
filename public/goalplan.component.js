@@ -43,12 +43,14 @@ angular.module('thriftyApp')
       }
     }
 
-    // default minimum 1 month
+    // shortest possible time using highest budget (entire available_income)
     $scope.min_time = function() {
       var min_time = $scope.cost / $scope.available_income
+      // if cost is more than available_income, round up months
       if (min_time > 1) {
         return Math.ceil(min_time)
       }
+      // else you can pay for it after 1 month
       else {
         return 1
       }
