@@ -43,13 +43,6 @@
             <span class="md-subhead" style="color:#FB8C00">{{goal.time_left}} months to go</span>
           </div>
         </div>
-        <div>
-          <md-progress-linear md-mode="determinate" value="{{( (goal.cost - goal.amount_saved) / goal.cost) * 100}}"></md-progress-linear>
-        </div>
-        <div layout="column">
-          <span class="md-subhead">Saved ${{goal.cost - goal.amount_saved}} / ${{goal.cost}}</span>
-          <span class="md-subhead" style="color:#FB8C00">{{goal.time_left}} months to go</span>
-        </div>
       </md-card-title-text>
     </md-card-title>
     <!-- <md-card-actions layout="row" layout-align="end center">

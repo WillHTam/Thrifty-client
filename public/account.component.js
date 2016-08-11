@@ -1,7 +1,7 @@
 angular.module('thriftyApp')
   .component('account', {
     templateUrl: 'account.template.html',
-    controller: function ($http, $scope, $location) {
+    controller: function ($http, $scope, $location, $mdDialog) {
       $http({
         method: 'GET',
         url: 'https://thrifty-app.herokuapp.com/user/',
@@ -49,9 +49,28 @@ angular.module('thriftyApp')
           headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
         })
         .success( function (data) {
-          console.log('fuck you')
-          window.location.href = 'https://app-stg.msf.gov.sg/Assistance'
+          console.log('User deleted.')
         })
       }
+
+      $scope.status = '  ';
+
+      $scope.showConfirm = function(ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+        .title('Are you sure you want to delete your account?')
+        .textContent('This action cannot be reversed.')
+        .ariaLabel('Are you sure?')
+        .targetEvent(ev)
+        .ok("Confirm")
+        .cancel('Cancel');
+
+        $mdDialog.show(confirm).then(function() {
+          $scope.deleteUser();
+          $location.path('/');
+        }, function() {
+          // $scope.status = 'Your goal is safe.';
+        });
+      };
     }
   })

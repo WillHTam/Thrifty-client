@@ -6,6 +6,7 @@ angular.module('thriftyApp')
     // icons
     $scope.icons = ["graduation-cap", "home", "plane", "car", "bank", "gift", "shopping-bag"]
 
+    // GET goal data from server
     $http({
       method: 'GET',
       url: 'https://thrifty-app.herokuapp.com/goal/' + $routeParams.id,
@@ -23,6 +24,7 @@ angular.module('thriftyApp')
       $scope.index = $scope.icons.indexOf($scope.goal.icon)
     })
 
+    // MODAL confirm deletion
     $scope.status = '  ';
 
     $scope.showConfirm = function(ev) {
@@ -32,8 +34,8 @@ angular.module('thriftyApp')
       .textContent('This action cannot be reversed.')
       .ariaLabel('Are you sure?')
       .targetEvent(ev)
-      .ok("Delete goal")
-      .cancel('Keep goal');
+      .ok("Confirm")
+      .cancel('Cancel');
 
       $mdDialog.show(confirm).then(function() {
         $scope.deleteGoal();
@@ -43,7 +45,7 @@ angular.module('thriftyApp')
       });
     };
 
-
+    // DELETE goal
     $scope.deleteGoal = function () {
       $http({
         method: 'DELETE',
@@ -55,6 +57,7 @@ angular.module('thriftyApp')
       })
     }
 
+    // ICON PICKER
     $scope.prev = function() {
       if ($scope.index === 0) {
         $scope.index = $scope.icons.length - 1;
@@ -72,6 +75,7 @@ angular.module('thriftyApp')
       console.log($scope.icons[$scope.index])
     }
 
+    // EDIT goal and send to server
     $scope.editGoal = function () {
       var data = {
         name: $scope.goal.name,
