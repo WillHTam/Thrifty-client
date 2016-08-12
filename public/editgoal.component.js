@@ -102,6 +102,18 @@ angular.module('thriftyApp')
 
     } // end deleteGoal()
 
+    $scope.goEdit = function () {
+      console.log('button pressed')
+      $location.path('/account')
+    }
+
+    $scope.logOut = function () {
+      console.log('Cleared!')
+      window.localStorage.email = undefined
+      window.localStorage.auth_token = undefined
+      $location.path('/')
+    }
+
     // ICON PICKER
     $scope.prev = function() {
       if ($scope.index === 0) {
