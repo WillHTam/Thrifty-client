@@ -37,10 +37,10 @@ angular.module('thriftyApp')
     // max monthly budget
     $scope.max_budget = function () {
       if ($scope.cost < $scope.available_income) {
-        return $scope.cost
+        return Math.floor($scope.cost)
       }
       else if ($scope.cost > $scope.available_income) {
-        return $scope.cost / $scope.min_time()
+        return Math.floor( $scope.cost / $scope.min_time() )
       }
     }
 
