@@ -29,6 +29,9 @@ angular.module('thriftyApp')
     .success( function(response) {
       console.log(response)
       $scope.available_income = response.available_income
+      $scope.first_name = response.first_name
+      $scope.last_name = response.last_name
+      $scope.monthly_income = response.monthly_income
     })
 
     //default lowest monthly budget
@@ -81,6 +84,17 @@ angular.module('thriftyApp')
       }
     }
 
+    $scope.goEdit = function () {
+      console.log('button pressed')
+      $location.path('/account')
+    }
+
+    $scope.logOut = function () {
+      console.log('Cleared!')
+      window.localStorage.email = undefined
+      window.localStorage.auth_token = undefined
+      $location.path('/')
+    }
 
     $scope.sendData = function() {
       var goalData = {
