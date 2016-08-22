@@ -25,6 +25,13 @@ angular.module('thriftyApp')
       $location.path('/account')
     }
 
+    $scope.logOut = function () {
+      console.log('Cleared!')
+      window.localStorage.email = undefined
+      window.localStorage.auth_token = undefined
+      $location.path('/')
+    }
+
     // icons
     $scope.icons = ["pied-piper", "graduation-cap", "home", "paw", "plane", "car", "bank", "gift", "shopping-bag"]
 

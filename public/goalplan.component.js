@@ -13,7 +13,6 @@ angular.module('thriftyApp')
       headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
     })
     .success( function(response) {
-      // latest goal
       console.log(response[response.length - 1])
       window.localStorage.goal_id = response[response.length - 1]._id
       $scope.cost = response[response.length - 1].cost
@@ -43,7 +42,7 @@ angular.module('thriftyApp')
         return Math.floor($scope.cost)
       }
       else if ($scope.cost > $scope.available_income) {
-        return Math.floor( $scope.cost / $scope.min_time() )
+        return Math.ceil( $scope.cost / $scope.min_time() )
       }
     }
 

@@ -1,11 +1,12 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
-    <div layout="row">
-      <div class="toolbar-logo" ng-href="/#/">
-        <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+    <a href="#/" class="home">
+      <div layout="row">
+        <div class="toolbar-logo">
+        </div>
+        <div class="wordmark">THRIFTY</div>
       </div>
-      <div class="wordmark">THRIFTY</div>
-    </div>
+    </a>
     <span flex></span>
     <h2>
       <span>Welcome back.</span>
@@ -16,9 +17,7 @@
 <div class="centred-page">
   <form name="loguser">
     <md-content layout="column" flex layout-padding>
-      <img ng-src="images/logo-wordmark.png" id="logo-wordmark">
-      <br>
-      <!-- <h1>Log in</h1> -->
+      <h1>Log in</h1>
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Email</label>

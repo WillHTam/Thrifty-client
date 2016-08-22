@@ -1,11 +1,24 @@
-<md-content layout="column" flex layout-padding style="justify-content: center">
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <a href="#/" class="home">
+      <div layout="row">
+        <div class="toolbar-logo">
+        </div>
+        <div class="wordmark-show">THRIFTY</div>
+      </div>
+    </a>
+  </div>
+</md-toolbar>
+
+<md-content layout="column" flex class="centred-page">
   <div>
-    <img ng-src="images/logo-wordmark.png" alt="" id="logo-wordmark" />
+    <img ng-src="images/logo.png" alt="" id="logo" />
   </div>
 
-  <h1>Saving for something?</h1>
-  <h1>Thrifty helps you plan and keep track of your goals.</h1>
-
+  <div class="center">
+    <h1>Saving for something?</h1>
+    <h1>Thrifty helps you plan and keep track of your goals.</h1><br/>
+  </div>
 
   <p>Start planning in seconds</p>
   <md-button class="md-raised md-primary" href="#/register">Register</md-button>

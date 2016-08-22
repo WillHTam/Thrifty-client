@@ -18,6 +18,9 @@ angular.module('thriftyApp')
       $location.path('/')
     }
 
+    //default lowest monthly budget
+    $scope.monthly_budget = 100
+
     // get current goal's ID and cost
     $http({
       method: 'GET',
@@ -25,12 +28,11 @@ angular.module('thriftyApp')
       headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
     })
     .success( function(response) {
-      // latest goal
       console.log(response[0])
       window.localStorage.goal_id = response[0]._id
       $scope.cost = response[0].cost
+      $scope.prev_monthly_budget = response[0].monthly_budget
       $scope.time_left = $scope.cost / $scope.monthly_budget
-      $scope.monthly_budget = $scope.prev_monthly_budget
     })
 
     // get user's available income
@@ -47,16 +49,13 @@ angular.module('thriftyApp')
       $scope.last_name = response.last_name
     })
 
-    //default lowest monthly budget
-    $scope.monthly_budget = 100
-
     // max monthly budget
     $scope.max_budget = function () {
       if ($scope.cost < $scope.available_income) {
-        return Math.round($scope.cost)
+        return Math.floor($scope.cost)
       }
       else if ($scope.cost > $scope.available_income) {
-        return Math.round( $scope.cost / $scope.min_time() )
+        return Math.ceil( $scope.cost / $scope.min_time() )
       }
     }
 
@@ -124,15 +123,15 @@ angular.module('thriftyApp')
       // UPDATE USER available_income
 
       // REDUCED GOAL BUDGET = available_income INCREASES by diff
-      if ($scope.prev_monthly_budget > $scope.monthly_budget) {
+      if ($scope.monthly_budget < $scope.prev_monthly_budget) {
       var latest_available_income = (
         $scope.available_income + ($scope.prev_monthly_budget - $scope.monthly_budget))
       }
 
       // INCREASED GOAL BUDGET = available_income DECREASES by diff
-      if ($scope.prev_monthly_budget < $scope.monthly_budget) {
+      if ($scope.monthly_budget > $scope.prev_monthly_budget) {
       var latest_available_income = (
-        $scope.available_income + ($scope.monthly_budget - $scope.prev_monthly_budget))
+        $scope.available_income - ($scope.monthly_budget - $scope.prev_monthly_budget))
       }
 
       // NO CHANGE

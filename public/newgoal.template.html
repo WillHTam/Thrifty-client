@@ -1,16 +1,17 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
-    <div layout="row">
-      <div class="toolbar-logo" ng-href="/#/">
-        <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+    <a href="#/" class="home">
+      <div layout="row">
+        <div class="toolbar-logo">
+        </div>
+        <div class="wordmark">THRIFTY</div>
       </div>
-      <div class="wordmark">THRIFTY</div>
-    </div>
+    </a>
     <span flex></span>
-    <div class="title-spaced">
+    <div class="title-user">
       <h1>{{first_name}} {{last_name}}
-          <i class="fa fa-user" aria-hidden="true"></i>
-          ${{monthly_income | number:0}}
+        <i class="fa fa-user" aria-hidden="true"></i>
+        ${{monthly_income | number:0}}
       </h1>
     </div>
     <span flex></span>

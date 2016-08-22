@@ -1,6 +1,25 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <a href="#/" class="home">
+      <div layout="row">
+        <div class="toolbar-logo" ng-href="/#/">
+          <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+        </div>
+        <div class="wordmark">THRIFTY</div>
+      </div>
+    </a>
+    <span flex></span>
+    <md-button aria-label="Dashboard" ng-href="#/dashboard">
+      Dashboard
+    </md-button>
+    <md-button aria-label="Log out" ng-click="logOut()">
+      Log out
+    </md-button>
+  </div>
+</md-toolbar>
+
 <form name="account">
   <md-content layout="column" flex layout-padding>
-    <img ng-src="images/wordmark.png" id="wordmark">
     <h1>My Account</h1>
 
     <div layout-gt-sm="row">
@@ -32,7 +51,7 @@
         <input type="password" name="userPassword" minLength="8" ng-model="account.password" md-no-asterisk required>
         <div ng-messages="account.userPassword.$error" multiple md-auto-hide="false">
           <div ng-message-exp="['required', 'minLength']">
-          Use at least 8 characters.
+            Use at least 8 characters.
           </div>
         </div>
       </md-input-container>
