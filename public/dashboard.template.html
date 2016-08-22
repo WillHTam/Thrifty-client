@@ -30,7 +30,7 @@
   <md-progress-circular md-mode="indeterminate" class="md-hue-1" md-diameter="20px" ng-show="isLoading"></md-progress-circular>
 
   <p class="title">Available:</p>
-  <h1>$ {{available_income | number:0}}</h1><br>
+  <h1>${{available_income | number:0}}</h1><br>
   <md-button ng-click="newGoal()" class="md-accent md-raised new-goal" aria-label="New Goal">
     <i class="fa fa-plus fa-lg" aria-hidden="true"></i> New Goal
   </md-button><br>
