@@ -24,10 +24,10 @@
   </div>
 </md-toolbar>
 
-<div class="centred-page">
+<div>
   <form name="goalPlanForm">
-    <md-content layout="column" flex layout-padding>
-      <h1>How would you like to save for it?</h1>
+    <md-content layout="column" flex>
+      <h1>How would you like to save for it?</h1><br>
 
       <h4>set aside ${{monthly_budget}}/month</h4>
       <md-slider-container>
@@ -47,7 +47,7 @@
         <md-input-container>
           <input id="time-left-input" flex type="number" ng-model="time_left" ng-change="time_left_changed()" aria-label="time_left" aria-controls="time-left-slider">
         </md-input-container>
-      </md-slider-container>
+      </md-slider-container><br>
 
       <md-button class="md-raised md-primary" ng-click="sendData()">Create Goal</md-button>
 

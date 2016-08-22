@@ -19,8 +19,8 @@
 </md-toolbar>
 
 <form name="account">
-  <md-content layout="column" flex layout-padding>
-    <h1>My Account</h1>
+  <md-content layout="column" flex>
+    <h1>My Account</h1><br>
 
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
@@ -58,7 +58,7 @@
     </div>
     <div layout-gt-sm="row">
       <md-input-container class="md-block" flex-gt-sm>
-        <label>Your Monthly Income</label>
+        <label>Monthly Income ($)</label>
         <input type="text" ng-model="account.monthly_income" md-no-asterisk required>
       </md-input-container>
     </div>
