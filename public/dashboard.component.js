@@ -34,10 +34,6 @@ angular.module('thriftyApp')
       $scope.goals = response
     })
 
-    $scope.goEdit = function () {
-      console.log('button pressed')
-      $location.path('/account')
-    }
 
     $scope.newGoal = function () {
       console.log('button pressed')
@@ -54,6 +50,11 @@ angular.module('thriftyApp')
       $location.path('/dashboard')
     }
 
+    $scope.goEdit = function () {
+      console.log('button pressed')
+      $location.path('/account')
+    }
+    
     $scope.logOut = function () {
       console.log('Cleared!')
       window.localStorage.email = undefined

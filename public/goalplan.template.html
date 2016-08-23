@@ -1,13 +1,14 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
-    <div layout="row">
-      <div class="toolbar-logo" ng-href="/#/">
-        <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+    <a href="#/" class="home">
+      <div layout="row">
+        <div class="toolbar-logo">
+        </div>
+        <div class="wordmark">THRIFTY</div>
       </div>
-      <div class="wordmark">THRIFTY</div>
-    </div>
+    </a>
     <span flex></span>
-    <div class="title-spaced">
+    <div class="title-user">
       <h1>{{first_name}} {{last_name}}
         <i class="fa fa-user" aria-hidden="true"></i>
         ${{monthly_income | number:0}}
@@ -23,10 +24,10 @@
   </div>
 </md-toolbar>
 
-<div class="centred-page">
+<div>
   <form name="goalPlanForm">
-    <md-content layout="column" flex layout-padding>
-      <h1>How would you like to save for it?</h1>
+    <md-content layout="column" flex>
+      <h1>How would you like to save for it?</h1><br>
 
       <h4>set aside ${{monthly_budget}}/month</h4>
       <md-slider-container>
@@ -46,10 +47,17 @@
         <md-input-container>
           <input id="time-left-input" flex type="number" ng-model="time_left" ng-change="time_left_changed()" aria-label="time_left" aria-controls="time-left-slider">
         </md-input-container>
-      </md-slider-container>
+      </md-slider-container><br>
 
       <md-button class="md-raised md-primary" ng-click="sendData()">Create Goal</md-button>
 
-    </md-content>
-  </form>
-</div>
+      <div layout="row" flex class="buttons-beside">
+        <!-- <md-button class="md-warn" ng-click="showConfirm($event)">
+        Delete Goal</md-button> -->
+        <md-button ng-href="/#/dashboard">
+          Back to Dashboard</md-button>
+        </div>
+
+      </md-content>
+    </form>
+  </div>

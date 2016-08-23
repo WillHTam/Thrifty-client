@@ -1,16 +1,18 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
-    <div layout="row">
-      <div class="toolbar-logo" ng-href="/#/">
-        <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+    <a href="#/" class="home">
+      <div layout="row">
+        <div class="toolbar-logo">
+          <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+        </div>
+        <div class="wordmark">THRIFTY</div>
       </div>
-      <div class="wordmark">THRIFTY</div>
-    </div>
+    </a>
     <span flex></span>
-    <div class="title-spaced">
+    <div class="title-user">
       <h1>{{first_name}} {{last_name}}
-          <i class="fa fa-user" aria-hidden="true"></i>
-          ${{monthly_income | number:0}}
+        <i class="fa fa-user" aria-hidden="true"></i>
+        ${{monthly_income | number:0}}
       </h1>
     </div>
     <span flex></span>
@@ -27,8 +29,8 @@
   <!-- LOADING UI -->
   <md-progress-circular md-mode="indeterminate" class="md-hue-1" md-diameter="20px" ng-show="isLoading"></md-progress-circular>
 
-  <h1>$ {{available_income | number:0}}</h1>
-  <p class="title-spaced">available</p><br>
+  <p class="title">Available:</p>
+  <h1>${{available_income | number:0}}</h1><br>
   <md-button ng-click="newGoal()" class="md-accent md-raised new-goal" aria-label="New Goal">
     <i class="fa fa-plus fa-lg" aria-hidden="true"></i> New Goal
   </md-button><br>
@@ -38,7 +40,10 @@
   <!-- GOAL CARDS -->
   <div ng-repeat="goal in goals" class="dashboard">
     <md-card class="dashcards" md-theme="{{ 'default' }}" md-theme-watch="">
-      <md-card-title style="padding-right: 30px;">
+      <md-card-title>
+        <div class="edit-goal-mobile">
+          <a href="#/editgoal/{{goal._id}}"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></span></a>
+        </div>
         <md-card-title-media>
           <div class="md-media-md card-media">
             <i class="fa fa-{{goal.icon}} fa-3x" aria-hidden="true"></i>
@@ -50,7 +55,7 @@
             <div>
               <span class="md-headline">{{goal.name}}</span> <h2>${{goal.monthly_budget | number:0}}/month</h2>
             </div>
-            <div>
+            <div class="edit-goal">
               <a href="#/editgoal/{{goal._id}}"><i class="fa fa-pencil fa-sm" aria-hidden="true"></i></span></a>
             </div>
           </div>
@@ -69,4 +74,5 @@
       </md-card-actions>
     </md-card>
   </div>
+</div>
 </md-content>

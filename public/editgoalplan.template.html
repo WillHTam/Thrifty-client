@@ -1,11 +1,12 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
-    <div layout="row">
-      <div class="toolbar-logo" ng-href="/#/">
-        <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+    <a href="#/" class="home">
+      <div layout="row">
+        <div class="toolbar-logo">
+        </div>
+        <div class="wordmark">THRIFTY</div>
       </div>
-      <div class="wordmark">THRIFTY</div>
-    </div>
+    </a>
     <span flex></span>
     <div class="title-spaced">
       <h1>{{first_name}} {{last_name}}
@@ -23,9 +24,9 @@
   </div>
 </md-toolbar>
 
-<div class="centred-page">
+<div>
   <form name="goalPlanForm">
-    <md-content layout="column" flex layout-padding>
+    <md-content layout="column" flex>
       <h1>How would you like to save for it?</h1>
 
       <h4>set aside ${{monthly_budget}}/month</h4>
@@ -48,8 +49,15 @@
         </md-input-container>
       </md-slider-container>
 
-      <md-button class="md-raised md-primary" ng-click="sendData()">Create Goal</md-button>
+      <md-button class="md-raised md-primary" ng-click="sendData()">Save Goal</md-button>
 
-    </md-content>
-  </form>
-</div>
+      <div layout="row" flex class="buttons-beside">
+        <md-button class="md-warn" ng-click="showConfirm($event)">
+          Delete Goal</md-button>
+          <md-button ng-href="/#/dashboard">
+            Back to Dashboard</md-button>
+          </div>
+
+        </md-content>
+      </form>
+    </div>

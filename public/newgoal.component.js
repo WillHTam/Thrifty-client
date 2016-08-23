@@ -17,11 +17,19 @@ angular.module('thriftyApp')
       console.log(response)
       $scope.first_name = response.first_name
       $scope.last_name = response.last_name
+      $scope.monthly_income = response.monthly_income
     })
 
     $scope.goEdit = function () {
       console.log('button pressed')
       $location.path('/account')
+    }
+
+    $scope.logOut = function () {
+      console.log('Cleared!')
+      window.localStorage.email = undefined
+      window.localStorage.auth_token = undefined
+      $location.path('/')
     }
 
     // icons

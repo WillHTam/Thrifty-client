@@ -1,24 +1,23 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
-    <div layout="row">
-      <div class="toolbar-logo" ng-href="/#/">
-        <!-- <img ng-src="images/logo-white.png" id="toolbar-logo"> -->
+    <a href="#/" class="home">
+      <div layout="row">
+        <div class="toolbar-logo">
+        </div>
+        <div class="wordmark">THRIFTY</div>
       </div>
-      <div class="wordmark">THRIFTY</div>
-    </div>
+    </a>
     <span flex></span>
     <h2>
-      <span>Welcome back.</span>
+      <span>Welcome back!</span>
     </h2>
   </div>
 </md-toolbar>
 
-<div class="centred-page">
+<div>
   <form name="loguser">
-    <md-content layout="column" flex layout-padding>
-      <img ng-src="images/logo-wordmark.png" id="logo-wordmark">
-      <br>
-      <!-- <h1>Log in</h1> -->
+    <md-content layout="column" flex>
+      <h1>Log in</h1><br>
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Email</label>
@@ -27,12 +26,12 @@
       </div>
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
-          <label>Password</label>
-          <input type="password" ng-model="loguser.password" md-no-asterisk required>
-        </md-input-container>
-      </div>
-      <div>
-        <md-button class="md-raised md-primary" ng-click="loggerIn()">Login</md-button>
-      </div>
-    </form>
-  </div>
+        <label>Password</label>
+        <input type="password" ng-model="loguser.password" md-no-asterisk required>
+      </md-input-container>
+    </div>
+    <div>
+      <md-button class="md-raised md-primary" ng-click="loggerIn()">Login</md-button>
+    </div>
+  </form>
+</div>

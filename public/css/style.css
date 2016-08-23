@@ -31,27 +31,74 @@ body {
   background-color: rgb(249,249,249);
 }
 
-.centred-page {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
+.center {
+  text-align: center;
 }
 
 h1 {
   font-size: 1.3em;
 }
 
+/*mobile*/
 @media screen and (max-width: 480px) {
-  #logo-wordmark {
-    height: 100px;
+
+  /*toolbar*/
+  #wordmark {
+    height: 30px;
+  }
+  #logo {
+    height: 50px;
+  }
+
+  /*dashboard*/
+
+  .dashcards {
+    width: 15em !important;
+  }
+  md-card-title {
+    display: flex;
+    flex-direction: column !important;
+    text-align: center;
+    padding: 0 16px 16px 16px;
+  }
+  md-card-title-media {
+    display: flex;
+    justify-content: center;
+  }
+  div.md-media-md.card-media {
+    width: 80px;
+    height: 80px;
+  }
+  div.title.layout-row {
+    justify-content: center;
+  }
+  .edit-goal {
+    display: none;
+  }
+  .edit-goal-mobile {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
-#logo-wordmark {
-  height: 150px;
+/*toolbar*/
+md-toolbar {
+  position: absolute;
+}
+
+/* breakpoint: reduce toolbar content on medium screens */
+@media screen and (max-width: 900px) {
+  .title-user, .wordmark {
+    display: none;
+  }
+}
+
+a.home:hover {
+  color: currentColor;
+}
+
+#logo {
+  height: 130px;
 }
 
 .toolbar-logo {
@@ -75,22 +122,19 @@ h1 {
   height: 30px;
 }
 
-.wordmark {
+.wordmark, .wordmark-show {
   letter-spacing: 0.3em;
   font-weight: bold;
   padding-left: 10px;
   font-size: 1.2em;
 }
 
-@media screen and (max-width: 480px) {
-  #wordmark {
-    height: 30px;
-  }
+.fa-user {
+  padding: 0 5px;
 }
 
-.title-spaced {
-  letter-spacing: 0.3em;
-}
+
+/*pages*/
 
 md-content.md-default-theme, md-content {
   color: rgba(76,219,148,1);
@@ -99,8 +143,64 @@ md-content.md-default-theme, md-content {
   flex-flow: column-wrap;
   align-items: center;
   justify-content: center;
-  padding: 5vh 0;
+  top: 80px;
 }
+
+/*goal cards on dashboard*/
+
+.dashcards{
+  width: 20em !important;
+}
+
+@media screen and (min-width: 480px) {
+  .edit-goal-mobile {
+    display: none;
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.card-media {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.md-card-title {
+  padding-right: 30px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/*card progress bar*/
+
+md-progress-linear {
+  height: 20px;
+  padding-bottom: 10px;
+}
+
+md-progress-linear ._md-container {
+  height: 15px;
+  border-radius: 50px;
+}
+
+md-progress-linear ._md-container ._md-bar {
+  height: 15px;
+}
+
+md-progress-linear.md-default-theme ._md-container, md-progress-linear ._md-container {
+  background-color: #E5E5E5;
+}
+
+/* misc elements */
 
 #icon-picker {
   min-width: 280px;
@@ -134,53 +234,4 @@ button {
 
 .md-button.md-default-theme.md-accent.md-raised, .md-button.md-accent.md-raised, .md-button.md-default-theme.md-accent.md-fab, .md-button.md-accent.md-fab .new-goal {
   color: rgb(255,255,255) !important;
-}
-
-
-/*goal cards on dashboard*/
-
-.dashcards{
-  width: 20em !important;
-}
-
-.title {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-
-.card-media {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.md-card-title {
-  padding-right: 20px;
-}
-
-.card-actions {
-  display: flex;
-  justify-content: flex-start;
-}
-
-/*progress bar*/
-
-md-progress-linear {
-  height: 20px;
-  padding-bottom: 10px;
-}
-
-md-progress-linear ._md-container {
-  height: 15px;
-  border-radius: 50px;
-}
-
-md-progress-linear ._md-container ._md-bar {
-  height: 15px;
-}
-
-md-progress-linear.md-default-theme ._md-container, md-progress-linear ._md-container {
-  background-color: #E5E5E5;
 }

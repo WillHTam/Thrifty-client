@@ -6,6 +6,21 @@ angular.module('thriftyApp')
       $location.path('/')
     }
 
+    $scope.goEdit = function () {
+      console.log('button pressed')
+      $location.path('/account')
+    }
+
+    $scope.logOut = function () {
+      console.log('Cleared!')
+      window.localStorage.email = undefined
+      window.localStorage.auth_token = undefined
+      $location.path('/')
+    }
+
+    //default lowest monthly budget
+    $scope.monthly_budget = 100
+
     // get current goal's ID and cost
     $http({
       method: 'GET',
@@ -13,10 +28,10 @@ angular.module('thriftyApp')
       headers: {'email': window.localStorage.email, 'auth_token': window.localStorage.auth_token}
     })
     .success( function(response) {
-      // latest goal
       console.log(response[0])
       window.localStorage.goal_id = response[0]._id
       $scope.cost = response[0].cost
+      $scope.prev_monthly_budget = response[0].monthly_budget
       $scope.time_left = $scope.cost / $scope.monthly_budget
     })
 
@@ -29,18 +44,18 @@ angular.module('thriftyApp')
     .success( function(response) {
       console.log(response)
       $scope.available_income = response.available_income
+      $scope.monthly_income = response.monthly_income
+      $scope.first_name = response.first_name
+      $scope.last_name = response.last_name
     })
-
-    //default lowest monthly budget
-    $scope.monthly_budget = 100
 
     // max monthly budget
     $scope.max_budget = function () {
       if ($scope.cost < $scope.available_income) {
-        return Math.round($scope.cost)
+        return Math.floor($scope.cost)
       }
       else if ($scope.cost > $scope.available_income) {
-        return Math.round( $scope.cost / $scope.min_time() )
+        return Math.ceil( $scope.cost / $scope.min_time() )
       }
     }
 
@@ -104,8 +119,26 @@ angular.module('thriftyApp')
         $location.path("/dashboard")
       })
 
+
       // UPDATE USER available_income
-      var latest_available_income = ($scope.available_income - $scope.monthly_budget)
+
+      // REDUCED GOAL BUDGET = available_income INCREASES by diff
+      if ($scope.monthly_budget < $scope.prev_monthly_budget) {
+      var latest_available_income = (
+        $scope.available_income + ($scope.prev_monthly_budget - $scope.monthly_budget))
+      }
+
+      // INCREASED GOAL BUDGET = available_income DECREASES by diff
+      if ($scope.monthly_budget > $scope.prev_monthly_budget) {
+      var latest_available_income = (
+        $scope.available_income - ($scope.monthly_budget - $scope.prev_monthly_budget))
+      }
+
+      // NO CHANGE
+      if ($scope.prev_monthly_budget === $scope.monthly_budget) {
+      var latest_available_income = (
+        $scope.available_income)
+      }
 
       var userData = {
         available_income: latest_available_income
